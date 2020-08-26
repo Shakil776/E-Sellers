@@ -10,7 +10,6 @@ use App\Http\Resources\ProductResource;
 use App\Category;
 use App\Manufacturer;
 use App\Product;
-use App\Vendor;
 use App\ProductStatus;
 use DB;
 
@@ -18,24 +17,13 @@ class ApiProductController extends Controller
 {
      // show all product
     public function showAllProduct() {
-
         $products = Product::with('attributes')->with('reviews')->paginate(40);
         foreach ($products as $key => $val) {
             $categoryName = Category::where(['id'=>$val->category_id])->first();
             $manufacturerName = Manufacturer::where(['id'=>$val->manufacturer_id])->first();
-            $vendorName = Vendor::where(['id'=>$val->vendor_id])->first();
             $productStatusName = ProductStatus::where(['id'=>$val->status_id])->first();
             $products[$key]->category_name = $categoryName['category_name'];
             $products[$key]->manufacturer_name = $manufacturerName['manufacturer_name'];
-            
-            // if(!empty($vendorName['name'])){
-            //     $products[$key]->vendor_name = $vendorName['name'];
-            //     $products[$key]->vendor_description = $vendorName['vendor_description'];
-            // }
-            
-            $products[$key]->vendor_name = $vendorName['name'];
-            $products[$key]->vendor_description = $vendorName['vendor_description'];
-            
             $products[$key]->product_status_name = $productStatusName['status_name'];
         }
 
@@ -69,12 +57,9 @@ class ApiProductController extends Controller
             foreach ($allProducts as $key => $val) {
                 $categoryName = Category::where(['id'=>$val->category_id])->first();
                 $manufacturerName = Manufacturer::where(['id'=>$val->manufacturer_id])->first();
-                $vendorName = Vendor::where(['id'=>$val->vendor_id])->first();
                 $productStatusName = ProductStatus::where(['id'=>$val->status_id])->first();
                 $allProducts[$key]->category_name = $categoryName['category_name'];
                 $allProducts[$key]->manufacturer_name = $manufacturerName['manufacturer_name'];
-                $allProducts[$key]->vendor_name = $vendorName['name'];
-                $allProducts[$key]->vendor_description = $vendorName['vendor_description'];
                 $allProducts[$key]->product_status_name = $productStatusName['status_name'];
             }
 

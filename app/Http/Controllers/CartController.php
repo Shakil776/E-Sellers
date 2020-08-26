@@ -59,8 +59,8 @@ class CartController extends Controller
 
     public function showCart() {
     	$cartItems = Cart::content();
-        //$countCartItem = count(Cart::content());
-    	return view('front-end.cart.show_cart')->with(compact('cartItems'));
+        $countCartItem = count(Cart::content());
+    	return view('front-end.cart.show_cart')->with(compact('cartItems', 'countCartItem'));
     }
 
     public function deleteCart($id) {
