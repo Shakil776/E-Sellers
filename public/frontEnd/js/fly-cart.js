@@ -19,12 +19,12 @@ $('.cart-info button').on('click', function () {
                 'z-index': '100'
             })
             .appendTo($('body'))
-            .animate({
-                'top': cart.offset().top + 10,
-                'left': cart.offset().left + 10,
-                'width': 75,
-                'height': 75
-            }, 1000, 'easeInOutExpo');
+            // .animate({
+            //     'top': cart.offset().top + 10,
+            //     'left': cart.offset().left + 10,
+            //     'width': 75,
+            //     'height': 75
+            // }, 1000, 'easeInOutExpo');
 
         setTimeout(function () {
             cart.effect("shake", {

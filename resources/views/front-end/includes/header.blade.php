@@ -243,7 +243,7 @@
                     </div>
                     <div class="col-lg-4 col-sm-6 text-right">
                         <ul class="header-dropdown">
-                            <li class="mobile-wishlist"><a href="{{ url('show') }}"><i class="fas fa-heart" aria-hidden="true"></i></a>
+                            <li class="mobile-wishlist" data-toggle="tooltip" data-placement="top" title="Wish List"><a href="{{ url('show') }}"><i class="fas fa-heart" aria-hidden="true"></i></a>
                             </li>
                             <li class="onhover-dropdown mobile-account">
                                 <i class="fas fa-user"></i>
@@ -291,29 +291,25 @@
                                         @foreach($mainCategories as $cat)
                                         <li class="mega" id="hover-cls"><a href="{{ asset('/product-category/'.$cat->url) }}">{{ $cat->category_name }} </a>
                                             <ul class="mega-menu full-mega-menu">
+                                                <div class="row">
                                                 @foreach($cat->categories as $subcat)
-                                                <li>
-                                                    <div class="container">
-                                                        <div class="row">
-                                                            <div class="col mega-box">
-                                                                <div class="link-section">
-                                                                    <div class="menu-title">
-                                                                        <a href="{{ asset('/product-category/'.$subcat->url) }}"><h5>{{ $subcat->category_name }}</h5></a>
-                                                                    </div>
-                                                                    <div class="menu-content">
-                                                                        <ul>
-                                                                            @foreach($subcat->subCategories as $subsubcat)
-                                                                            <li><a href="{{ asset('/product-category/'.$subsubcat->url) }}">{{ $subsubcat->category_name }}</a></li>
-                                                                            @endforeach
+                                                    <li class="col mega-box">
+                                                        <div class="link-section">
+                                                            <div class="menu-title">
+                                                                <a href="{{ asset('/product-category/'.$subcat->url) }}"><h5>{{ $subcat->category_name }}</h5></a>
+                                                            </div>
+                                                            <div class="menu-content">
+                                                                <ul>
+                                                                    @foreach($subcat->subCategories as $subsubcat)
+                                                                    <li><a href="{{ asset('/product-category/'.$subsubcat->url) }}">{{ $subsubcat->category_name }}</a></li>
+                                                                    @endforeach
 
-                                                                        </ul>
-                                                                    </div>
-                                                                </div>
+                                                                </ul>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                </li>
+                                                    </li>
                                                 @endforeach
+                                                </div>
                                             </ul>
                                         </li>
                                         @endforeach
@@ -323,11 +319,11 @@
                             <div>
                                 <div class="icon-nav">
                                     <ul>
-                                        <li class="onhover-div mobile-cart">
-                                            <div>
+                                        <li >
+                                            <div class="onhover-div mobile-cart">
                                                 <a href="{{ url('cart-show') }}">
                                                     <i class="fas fa-cart-arrow-down"></i>
-                                                    <span>({{ $cart_qty }})</span>
+                                                    <span>{{ $cart_qty }}</span>
                                                 </a>
                                             </div>
 

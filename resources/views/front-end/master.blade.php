@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url('frontEnd') }}/css/bootstrap.css">
 
     <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="{{ url('frontEnd') }}/css/color1.css" media="screen" id="color">
+    <link rel="stylesheet" type="text/css" href="{{ url('frontEnd') }}/css/color1.css?v=1.0" media="screen" id="color">
 
 
 </head>
@@ -49,14 +49,6 @@
     <!-- footer -->
     @include('front-end.includes.footer')
     <!-- footer end -->
-
-    <!-- cart start -->
-    <div class="addcart_btm_popup" id="fixed_cart_icon">
-        <a href="#" class="fixed_cart">
-            <i class="fas fa-cart-arrow-down"></i>
-        </a>
-    </div>
-    <!-- cart end -->
 
 
     <!-- tap to top -->
@@ -102,10 +94,10 @@
     <script src="{{ url('frontEnd') }}/js/fly-cart.js"></script>
 
     <!-- jquery.elevatezoom.js -->
-    <script src="{{ url('frontEnd') }}/js/jquery.elevatezoom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/elevatezoom/2.2.3/jquery.elevatezoom.min.js"></script>
 
     <!-- Theme js-->
-    <script src="{{ url('frontEnd') }}/js/script.js"></script>
+    <script src="{{ url('frontEnd') }}/js/script.js?v=1.0"></script>
 
     <script>
         $(window).on('load', function () {

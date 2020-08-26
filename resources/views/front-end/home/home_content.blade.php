@@ -31,7 +31,7 @@
         <div class="container">
             <div class="row partition2">
                 <div class="col-md-6">
-                    <a href="#">
+                    <a href="">
                         <div class="collection-banner p-right text-center">
                             <div class="img-part">
                                 <img src="{{ asset('frontEnd')}}/images/sub-banner1.jpg" class="img-fluid blur-up lazyload bg-img"
@@ -47,7 +47,7 @@
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <a href="#">
+                    <a href="">
                         <div class="collection-banner p-right text-center">
                             <div class="img-part">
                                 <img src="{{ asset('frontEnd')}}/images/sub-banner2.jpg" class="img-fluid blur-up lazyload bg-img"
@@ -106,7 +106,7 @@
                                 </div>
 
                                 <div class="cart-info cart-wrap">
-                                    <button data-toggle="modal" title="Add to cart">
+                                    <button data-toggle="modal"  title="Add to cart">
                                         <a href="javascript:" class="direct_add_cart" id="<?php echo $allProduct->id; ?>"><i class="fas fa-cart-arrow-down"></i></a>
                                     </button>
                                     <a href="javascript:" title="Add to Wishlist" class="add_to_wishlist" id="<?php echo $allProduct->id; ?>">

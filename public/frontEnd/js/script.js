@@ -56,6 +56,12 @@
         $(this).remove();
     });
 
+    /*--================
+    remove alertfunction
+    ======================--*/
+    setTimeout(function(){
+        $(".alert.alert-success").fadeOut("slow")
+    },3000);
 
     /*=====================
      02.Tap on Top
@@ -83,6 +89,34 @@
     });
 
 
+
+    //zoom js
+
+    /* _____________________________________
+    zoom js
+    _____________________________________ */
+    if($(window).width() > 991){
+        $('.product-right-slick, .product-slick, .rtl-product-slick, .rtl-product-right-slick').on('afterChange', function(event, slick, currentSlide, nextSlide){
+            var img_url_temp = $(this).find('img').attr('src');
+            var imgs = $('.image_zoom_cls');
+            $('.zoomContainer').remove();
+            imgs.removeData('elevateZoom');
+            imgs.removeData('zoomImage');
+            var temp_zoom_cls = '.image_zoom_cls-'+currentSlide;
+            setTimeout(function(){
+                $(temp_zoom_cls).elevateZoom({
+                    tint:true, tintColour:'#F90', tintOpacity:0.5
+                });
+            }, 200);
+        });
+    }
+    if($(window).width() > 991){
+        setTimeout(function(){
+            $('.product-right-slick .slick-active img, .product-slick .slick-active img, .rtl-product-slick .slick-active img, .rtl-product-right-slick .slick-active img').elevateZoom({
+                tint:true, tintColour:'#F90', tintOpacity:0.5
+            });
+        }, 100);
+    }
 
     /*=====================
      04. Mega menu js

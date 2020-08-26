@@ -66,11 +66,6 @@
 
                             <form action="{{ url('add-cart') }}" method="post">
                                 @csrf
-                            <!-- <ul class="color-variant">
-                                <li class="bg-light0"></li>
-                                <li class="bg-light1"></li>
-                                <li class="bg-light2"></li>
-                            </ul> -->
                             <div class="product-description border-product">
 
                            <!--  @if(!empty($productDetails->attributes))
@@ -110,7 +105,6 @@
                                 <div class="product-buttons">
                                     
                                     <input type="submit" name="btn" value="Add To Cart" class="btn btn-solid" />
-                                    <!-- <a href="#" class="btn btn-solid"><i class="fa fa-heart"></i> Add to wishlist</a> -->
                                 </div>
 
                             </form>
@@ -193,7 +187,7 @@
                                             id="exampleFormControlTextarea1" rows="6"></textarea>
                                     </div>
                                     <div class="col-md-12">
-                                        <button class="btn btn-solid" type="submit">Submit YOur Review</button>
+                                        <button class="btn btn-solid" type="submit">Submit Your Review</button>
                                     </div>
                                 </div>
                             </form>
@@ -215,9 +209,8 @@
                 </div>
             </div>
             <div class="row search-product">
-
+                 @foreach($relatedProducts as $relatedProduct)
                 <div class="col-xl-2 col-md-4 col-sm-6">
-                    @foreach($relatedProducts as $relatedProduct)
                     <div class="product-box">
                         <div class="img-wrapper">
                             <div class="front">
@@ -266,8 +259,8 @@
                             <h4>TK. {{ $relatedProduct->product_price }}</h4>
                         </div>
                     </div>
-                    @endforeach
                 </div>
+                @endforeach
 
             </div>
         </div>
