@@ -23,7 +23,7 @@
 
 
 
-                        <button>Pay Now</button>
+                        <button class="btn btn-solid">Pay Now</button>
 
                     </div>
                 </div>
@@ -45,7 +45,7 @@
 
                         <div class="row product-order-detail">
 
-                            <table>
+                            <table class="table table-hover">
                                 <thead>
                                     <tr class="text-center">
                                         <th width="25%">Product Image</th>
@@ -58,7 +58,7 @@
                                 @foreach($cartItems as $cartItem)
                                 <tbody class="text-center">
                                     <td><img src="{{ asset($cartItem->options->image) }}" style="width: 100px; height: 100px" alt="Product Image"></td>
-                                    <td>{{ $cartItem->name }}({{ $cartItem->price }} TK.)</td>
+                                    <td>{{ $cartItem->name }} ({{ $cartItem->price }} TK.)</td>
                                     <td>{{ $cartItem->qty }}</td>
                                     <td>TK. {{ $total = $cartItem->price * $cartItem->qty }}</td>
                                 </tbody>
@@ -74,11 +74,11 @@
                             <ul>
                                 <li>subtotal <span>TK. {{ $sum }}</span></li>
                                 <li>shipping(+) <span>TK. 0</span></li>
-                                <li>vat(2%)(+) <span>TK{{ $vat = $sum * (2/100) }}</span></li>
+                                <li>vat(2%)(+) <span>TK {{ $vat = $sum * (2/100) }}</span></li>
                             </ul>
                         </div>
                         <div class="final-total">
-                            <h3>total <span>TK. {{ $orderTotal = $sum + $vat }}</span></h3>
+                            <h4>total <span  style="text-align:right;font-weight:600">TK. {{ $orderTotal = $sum + $vat }}</span></h4>
                         </div>
                     </div>
                 </div>

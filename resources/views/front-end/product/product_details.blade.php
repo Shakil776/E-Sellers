@@ -68,24 +68,6 @@
                                 @csrf
                             <div class="product-description border-product">
 
-                           <!--  @if(!empty($productDetails->attributes))
-                                <h6 class="product-title size-text">select size</h6>                
-                                <div class="size-box">
-                                    <ul>
-                                        @foreach($productDetails->attributes as $sizes)
-                                            @if($sizes->size == 'Small')
-                                                <li class="active">S</li>
-                                            @elseif($sizes->size == 'Midium')
-                                                <li>M</li>
-                                            @endif
-                                        @endforeach
-
-                                    </ul>
-                                </div>
-                            @endif -->
-
-
-
                                 
                                     <h6 class="product-title">quantity</h6>
                                     <div class="qty-box">
@@ -146,7 +128,7 @@
                             <div class="material-border"></div>
                         </li>
                         <li class="nav-item"><a class="nav-link" id="review-top-tab" data-toggle="tab"
-                                href="#top-review" role="tab" aria-selected="false">Write Review</a>
+                                href="#top-review" role="tab" aria-selected="false">Review</a>
                             <div class="material-border"></div>
                         </li>
                     </ul>
@@ -155,42 +137,67 @@
                             <p>{{ $productDetails->long_description }}</p>
                         </div>
                         <div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">
-                            <form class="theme-form">
-                                <div class="form-row">
-                                    <div class="col-md-12">
-                                        <div class="media">
-                                            <label>Rating</label>
-                                            <div class="media-body ml-3">
-                                                <div class="rating three-star"><i class="fa fa-star"></i> <i
-                                                        class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-                                                        class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                            <ul>
+                                <li class="user-ratings">
+                                    <div class="user-rating-name">Jhone Doe</div>
+                                    <div class="media">
+                                        <label>Rating</label>
+                                        <div class="media-body ml-3">
+                                            <div class="rating three-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="name">Name</label>
-                                        <input type="text" class="form-control" id="name" placeholder="Enter Your name"
-                                            required>
+                                    <div class="user-rating-comments">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio vel iste obcaecati dolores illo praesentium blanditiis
+                                            , cupiditate aliquid nobis voluptate explicabo ad, quasi similique aut a nostrum reprehenderit quod corrupti?</p>
                                     </div>
-                                    <div class="col-md-6">
-                                        <label for="email">Email</label>
-                                        <input type="text" class="form-control" id="email" placeholder="Email" required>
+                                </li>
+
+                                <li class="user-ratings">
+                                    <div class="user-rating-name">Jhone Doe</div>
+                                    <div class="media">
+                                        <label>Rating</label>
+                                        <div class="media-body ml-3">
+                                            <div class="rating three-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="review">Review Title</label>
-                                        <input type="text" class="form-control" id="review"
-                                            placeholder="Enter your Review Subjects" required>
+                                    <div class="user-rating-comments">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio vel iste obcaecati dolores illo praesentium blanditiis
+                                            , cupiditate aliquid nobis voluptate explicabo ad, quasi similique aut a nostrum reprehenderit quod corrupti?</p>
                                     </div>
-                                    <div class="col-md-12">
-                                        <label for="review">Review Title</label>
-                                        <textarea class="form-control" placeholder="Wrire Your Testimonial Here"
-                                            id="exampleFormControlTextarea1" rows="6"></textarea>
+                                </li>
+
+                                <li class="user-ratings">
+                                    <div class="user-rating-name">Jhone Doe</div>
+                                    <div class="media">
+                                        <label>Rating</label>
+                                        <div class="media-body ml-3">
+                                            <div class="rating three-star">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i> 
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <button class="btn btn-solid" type="submit">Submit Your Review</button>
+                                    <div class="user-rating-comments">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio vel iste obcaecati dolores illo praesentium blanditiis
+                                            , cupiditate aliquid nobis voluptate explicabo ad, quasi similique aut a nostrum reprehenderit quod corrupti?</p>
                                     </div>
-                                </div>
-                            </form>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
