@@ -54,7 +54,7 @@ class UserController extends Controller
             Session::put('customerId', $customerId);
             Session::put('customerName', $customerName);
 
-            return redirect('/');
+            return redirect('/cart-show');
        }
     }
 
@@ -76,7 +76,7 @@ class UserController extends Controller
         if (password_verify($request->password, $user->password)) {
             Session::put('customerId', $user->id);
             Session::put('customerName', $user->name);
-            return redirect('/');
+            return redirect('/cart-show');
         } else {
             return redirect()->back()->with('error', 'Invalid Credentials!');
         }

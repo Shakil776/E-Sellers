@@ -52,6 +52,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
+                @if($countCartItem != 0)
                     <table class="table cart-table table-responsive-xs">
                         <thead>
                             <tr class="table-head">
@@ -132,11 +133,21 @@
                             </tr>
                         </tfoot>
                     </table>
+                @else
+					<tr class="text-center"><td>Your Shopping Cart is empty. Please add prodcut.</td></tr>
+				@endif
                 </div>
             </div>
             <div class="row cart-buttons">
-                <div class="col-6"><a href="{{ url('/') }}" class="btn btn-solid">continue shopping</a></div>
-                <div class="col-6"><a href="{{ url('checkout') }}" class="btn btn-solid">check out</a></div>
+                <div class="col-6 text-center">
+                    <a href="{{ url('/') }}" class="btn btn-solid">continue shopping</a>
+                </div>
+                @if($countCartItem != 0)
+                    <div class="col-6">
+                        <a href="{{ url('checkout') }}" class="btn btn-solid">check out</a>
+                    </div>
+                @endif
+
             </div>
         </div>
     </section>
