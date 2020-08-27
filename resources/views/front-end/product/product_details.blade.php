@@ -138,65 +138,25 @@
                         </div>
                         <div class="tab-pane fade" id="top-review" role="tabpanel" aria-labelledby="review-top-tab">
                             <ul>
+                            @foreach($reviews as $review)
                                 <li class="user-ratings">
-                                    <div class="user-rating-name">Jhone Doe</div>
+                                    <div class="user-rating-name">{{ $review->customer_name }}</div>
                                     <div class="media">
-                                        <label>Rating</label>
                                         <div class="media-body ml-3">
                                             <div class="rating three-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i> 
-                                                <i class="fa fa-star"></i> 
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
+                                                @for ($i = 0; $i < 5; ++$i)
+                                                    <i class="fa fa-star{{ $review->rating<=$i?'-o':'' }}" aria-hidden="true" style="color: red;"></i>
+                                                @endfor
                                             </div>
+                                            
                                         </div>
                                     </div>
                                     <div class="user-rating-comments">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio vel iste obcaecati dolores illo praesentium blanditiis
-                                            , cupiditate aliquid nobis voluptate explicabo ad, quasi similique aut a nostrum reprehenderit quod corrupti?</p>
+                                        <p>{{ $review->review }}</p>
                                     </div>
                                 </li>
+                            @endforeach
 
-                                <li class="user-ratings">
-                                    <div class="user-rating-name">Jhone Doe</div>
-                                    <div class="media">
-                                        <label>Rating</label>
-                                        <div class="media-body ml-3">
-                                            <div class="rating three-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i> 
-                                                <i class="fa fa-star"></i> 
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="user-rating-comments">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio vel iste obcaecati dolores illo praesentium blanditiis
-                                            , cupiditate aliquid nobis voluptate explicabo ad, quasi similique aut a nostrum reprehenderit quod corrupti?</p>
-                                    </div>
-                                </li>
-
-                                <li class="user-ratings">
-                                    <div class="user-rating-name">Jhone Doe</div>
-                                    <div class="media">
-                                        <label>Rating</label>
-                                        <div class="media-body ml-3">
-                                            <div class="rating three-star">
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i> 
-                                                <i class="fa fa-star"></i> 
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="user-rating-comments">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio vel iste obcaecati dolores illo praesentium blanditiis
-                                            , cupiditate aliquid nobis voluptate explicabo ad, quasi similique aut a nostrum reprehenderit quod corrupti?</p>
-                                    </div>
-                                </li>
                             </ul>
                         </div>
                     </div>

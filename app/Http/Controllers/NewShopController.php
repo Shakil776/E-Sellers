@@ -78,7 +78,8 @@ class NewShopController extends Controller
              $cat_ids[] = $categoryDetails->id;
         }
 
-        $allProducts = Product::whereIn('category_id', $cat_ids)->get();
+        $allProducts = Product::whereIn('category_id', $cat_ids)->paginate(20);
+
         $manufacturers = Manufacturer::where(['publication_status' => 1])->get();
 
         $newProducts1 = Product::where('publication_status', 1)
@@ -107,7 +108,7 @@ class NewShopController extends Controller
 
         $bandProdutDetails = Manufacturer::where(['url' => $url])->first();
 
-        $allBandProducts = Product::where(['manufacturer_id' => $bandProdutDetails->id])->get();
+        $allBandProducts = Product::where(['manufacturer_id' => $bandProdutDetails->id])->paginate(20);
 
         //$bandName = Manufacturer::where(['manufacturer_name' => $value->id])->first();
 
@@ -146,15 +147,17 @@ class NewShopController extends Controller
 
         //$total_stock = ProductsAttributes::where('product_id', $id)->sum('stock'); 
 
-        // $reviews = Review::where('product_id', $id)->get(); 
-        // foreach ($reviews as $key => $val) {
-        //     $customerName = User::where(['id'=>$val->customer_id])->first();
-        //     $reviews[$key]->customer_name = $customerName['name'];
-        // }
+        $reviews = Review::where('product_id', $id)->get(); 
+        foreach ($reviews as $key => $val) {
+            $customerName = User::where(['id'=>$val->customer_id])->first();
+            if(!empty($customerName)){
+                $reviews[$key]->customer_name = $customerName['name'];
+            }
+        }
         // $reviews_count = Review::where('product_id', $id)->count('review'); 
 
     	//return view('front-end.product.product_details')->with(compact('productDetails','relatedProducts', 'total_stock', 'reviews', 'reviews_count'));
-        return view('front-end.product.product_details')->with(compact('productDetails', 'relatedProducts', 'brandName'));
+        return view('front-end.product.product_details')->with(compact('productDetails', 'relatedProducts', 'brandName', 'reviews'));
     }
 
     // get product price
