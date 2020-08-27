@@ -105,7 +105,7 @@
                                 </td>
                             </tr>
 
-                            <?php $sum = $sum + $total; ?>
+                            <?php $sum = $sum + $total; Session::put('subTotal', $sum); ?>
                                     
                             @endforeach
 

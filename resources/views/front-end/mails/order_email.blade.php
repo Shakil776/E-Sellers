@@ -146,10 +146,11 @@
                                     <h5
                                         style="font-size: 16px; font-weight: 600;color: #000; line-height: 16px; padding-bottom: 13px; border-bottom: 1px solid #e6e8eb; letter-spacing: -0.65px; margin-top:0; margin-bottom: 13px;">
                                         Your Shipping Address</h5>
-                                    <p
-                                        style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px;    margin-top: 0;">
-                                        268 Cambridge Lane New Albany,<br> IN 47150268 Cambridge Lane <br>New Albany, IN
-                                        47150</p>
+                                    <p style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px;    margin-top: 0;">
+                                        {{ $shippingDetails->shipping_name }},<br> 
+                                        {{ $shippingDetails->shipping_address }} <br>
+                                        @if(!empty($shippingDetails->shipping_email)) {{ $shippingDetails->shipping_email }} @endif <br>
+                                        {{ $shippingDetails->shipping_mobile }}</p>
                                 </td>
                                 <td><img src="{{ $message->embed('frontEnd/images/email-temp/space.jpg') }}" alt=" " height="25" width="30">
                                 </td>
@@ -158,10 +159,11 @@
                                     <h5
                                         style="font-size: 16px;font-weight: 600;color: #000; line-height: 16px; padding-bottom: 13px; border-bottom: 1px solid #e6e8eb; letter-spacing: -0.65px; margin-top:0; margin-bottom: 13px;">
                                         Your Billing Address:</h5>
-                                    <p
-                                        style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px;    margin-top: 0;">
-                                        268 Cambridge Lane New Albany,<br> IN 47150268 Cambridge Lane <br>New Albany, IN
-                                        47150</p>
+                                    <p style="text-align: left;font-weight: normal; font-size: 14px; color: #000000;line-height: 21px;    margin-top: 0;">
+                                        {{ $billingDetails->name }},<br> 
+                                        {{ $billingDetails->address }} <br>
+                                        @if(!empty($billingDetails->email)) {{ $billingDetails->email }} @endif <br>
+                                        {{ $billingDetails->mobile }}</p>
                                 </td>
                             </tr>
                         </tbody>

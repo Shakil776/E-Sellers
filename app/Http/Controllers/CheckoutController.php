@@ -79,7 +79,7 @@ class CheckoutController extends Controller
 
             if ($shippingCount > 0) {
                 // update shipping address
-               $shipping = Shipping::where('customer_id', $user_id)->first();
+                $shipping = Shipping::where('customer_id', $user_id)->first();
 
                 $shipping->shipping_name = $data['shipping_name'];
 
@@ -105,7 +105,7 @@ class CheckoutController extends Controller
                     $shipping->shipping_address = str_replace(',', '-', $data['shipping_address']).', '.$data['shipping_city'].', '.$data['shipping_state'];
                 }
 
-                $shipping->save();
+                $shipping->update();
 
             } else {
                 // add new shipping address
@@ -189,7 +189,8 @@ class CheckoutController extends Controller
             if ($data['payment_type'] == 'CoD') {
 
                 $orders = Order::findOrFail($order->id);
-                // $shippingDetails = Shipping::find($orders->shipping_id)->first();
+                $shippingDetails = Shipping::find($orders->shipping_id);
+                $billingDetails = User::find($user_id);
                 $payment = Payment::where('order_id', $orders->id)->first();
                 $orderDetails = OrderDetail::with('products')->where('order_id', $orders->id)->get();
 
@@ -200,7 +201,9 @@ class CheckoutController extends Controller
                     'name' => $name,
                     'order_id' => $order->id,
                     'order_date' => $order->created_at,
-                    'orderDetails' => $orderDetails
+                    'orderDetails' => $orderDetails,
+                    'billingDetails' => $billingDetails,
+                    'shippingDetails' => $shippingDetails,
                 ];
 
                 Mail::send('front-end.mails.order_email', $messageData, function($message) use ($email) {
