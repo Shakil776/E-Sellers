@@ -46,8 +46,8 @@
                                 <div class="collection-collapse-block-content">
                                     <div class="collection-brand-filter">
                                         @foreach($categories as $cat)
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <a href="{{ $cat->url }}"><label class="custom-control-label" for="zara">{{ $cat->category_name }}</label></a>
+                                        <div class="custom-control custom-checkbox collection-filter-checkbox" style="padding-left:0px">
+                                            <a href="{{ $cat->url }}"><label class="custom-control" for="zara" style="padding-left:0px">{{ $cat->category_name }}</label></a>
                                         </div>
                                         @endforeach 
                                     </div>
@@ -61,8 +61,8 @@
                                 <div class="collection-collapse-block-content">
                                     <div class="collection-brand-filter">
                                         @foreach($manufacturers as $manufacturer)
-                                        <div class="custom-control custom-checkbox collection-filter-checkbox">
-                                            <a href="{{ asset('/band/'.$manufacturer->url) }}"><label class="custom-control-label" for="zara">{{ $manufacturer->manufacturer_name }}</label></a>
+                                        <div class="custom-control custom-checkbox collection-filter-checkbox" style="padding-left:0px">
+                                            <a href="{{ asset('/band/'.$manufacturer->url) }}"><label class="custom-control" for="zara" style="padding-left:0px">{{ $manufacturer->manufacturer_name }}</label></a>
                                         </div>
                                         @endforeach 
                                     </div>

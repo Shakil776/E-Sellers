@@ -74,11 +74,11 @@
                                     <h2>TK. {{ $wishlist->product_price }}</h2>
                                 </td>
                                 <td>
-                                    <form action="{{ url('remove') }}" method="post">
+                                    <form action="{{ url('remove') }}" method="post" style="display: inline-block; margin-right: 8px;">
                                         @csrf
                                         <input type="hidden" name="wishlist_id" value="{{ $wishlist->id }}">
-                                        <button class="wishlist-btn-remove bg-danger" title="Remove">
-                                            <i class="fa fa-times wish-icon"></i>
+                                        <button class="wishlist-btn-remove" title="Remove">
+                                            <i class="ti-close wish-icon"></i>
                                         </button>
                                         <!-- <a href="#" class="icon mr-3"><i class="ti-close"></i></a> -->
                                     </form>

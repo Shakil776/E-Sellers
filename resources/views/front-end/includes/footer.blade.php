@@ -52,7 +52,7 @@
                     <div class="col offset-xl-1">
                         <div class="sub-title">
                             <div class="footer-title">
-                                <h4>my account</h4>
+                                <h4>Band</h4>
                             </div>
                             <div class="footer-contant">
                                 <ul>
@@ -74,9 +74,7 @@
                                 <ul>
                                     <li><a href="#">shipping & return</a></li>
                                     <li><a href="#">secure shopping</a></li>
-                                    <li><a href="#">gallary</a></li>
                                     <li><a href="#">affiliates</a></li>
-                                    <li><a href="#">contacts</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -91,7 +89,7 @@
                                     <li><i class="fa fa-map-marker"></i>E-commerce Demo Store, Demo store Dhaka, Bangladesh
                                     </li>
                                     <li><i class="fa fa-phone"></i>Call Us: 123-456-7898</li>
-                                    <li><i class="fa fa-envelope-o"></i>Email Us: <a href="#">smaple@gmail.com</a></li>
+                                    <li><i class="fa fa-envelope-o"></i>Email Us: <a href="#" style="text-transform:lowercase">e-sellers@gmail.com</a></li>
                                     <li><i class="fa fa-fax"></i>Fax: 123456</li>
                                 </ul>
                             </div>
@@ -103,30 +101,9 @@
         <div class="sub-footer">
             <div class="container">
                 <div class="row">
-                    <div class="col-xl-6 col-md-6 col-sm-12">
-                        <div class="footer-end">
-                            <p><i class="fa fa-copyright" aria-hidden="true"></i> 2020 E-commerce Project</p>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-md-6 col-sm-12">
-                        <div class="payment-card-bottom">
-                            <ul>
-                                <li>
-                                    <a href="#"><img src="{{ asset('frontEnd')}}/images/icon/visa.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="{{ asset('frontEnd')}}/images/icon/mastercard.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="{{ asset('frontEnd')}}/images/icon/paypal.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="{{ asset('frontEnd')}}/images/icon/american-express.png" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#"><img src="{{ asset('frontEnd')}}/images/icon/discover.png" alt=""></a>
-                                </li>
-                            </ul>
+                    <div class="col-sm-12">
+                        <div class="footer-end text-center">
+                            <p><i class="fa fa-copyright" aria-hidden="true"></i> Copyright 2020 E-Sellers. All Rights Reserved</p>
                         </div>
                     </div>
                 </div>

@@ -48,7 +48,7 @@
 
 
     <!--section start-->
-    <section class="cart-section section-b-space">
+    <section class="cart-section section-b-space text-center">
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
@@ -88,7 +88,7 @@
                                                 @csrf
                                                 <input type="number" name="qty" class="form-control input-number" value="{{ $cartItem->qty }}" min="1">
                                                 <input type="hidden" name="rowId" value="{{ $cartItem->rowId }}" min="1" />
-                                                <input type="submit" name="btn" class="btn btn-primary" value="Update" />
+                                                <input type="submit" name="btn" class="btn btn-primary" style="background:#ff4c3b;border-color:#ff4c3b" value="Update" />
                                             </form>
                                         </div>
                                     </div>
@@ -139,7 +139,7 @@
                 </div>
             </div>
             <div class="row cart-buttons">
-                <div class="col-6 text-center">
+                <div class="col-6 ">
                     <a href="{{ url('/') }}" class="btn btn-solid">continue shopping</a>
                 </div>
                 @if($countCartItem != 0)
