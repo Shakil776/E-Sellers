@@ -42,25 +42,21 @@
                                         <th width="25%">Price</th>
                                     </tr>
                                 </thead>
-                        
                                 @foreach($cartItems as $cartItem)
                                 <tbody class="text-center">
                                     <td><img src="{{ asset($cartItem->options->image) }}" style="width: 100px; height: 100px" alt="Product Image"></td>
                                     <td>{{ $cartItem->name }}({{ $cartItem->price }} TK.)</td>
                                     <td>{{ $cartItem->qty }}</td>
-                                    <td>TK. {{ $total = $cartItem->price * $cartItem->qty }}</td>
+                                    <td>TK. {{ $cartItem->price * $cartItem->qty }}</td>
+                                    
                                 </tbody>
-                                <?php $sum = 0; $sum = $sum + $total; ?>
                                 @endforeach
-
                             </table>
-
                         </div>
-
 
                         <div class="total-sec">
                             <ul>
-                                <li>subtotal <span>TK. {{ $sum }}</span></li>
+                                <li>subtotal <span>TK. {{ $sum = Session::get('subTotal') }}</span></li>
                                 <li>shipping(+) <span>TK. 0</span></li>
                                 <li>vat(2%)(+) <span>TK{{ $vat = $sum * (2/100) }}</span></li>
                             </ul>

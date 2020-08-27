@@ -91,16 +91,5 @@ Route::group([
     Route::get('/orderDetails/{orderId}', 'Api\ApiOrderController@orderDetails');
 });
 
-// vendor history
-Route::group([
-    'middleware' => 'api',
-    'prefix' => 'vendor'
-], function () {
-    // show vendor details, products and reviews history
-    Route::post('/history', 'Api\ApiVendorController@showVendorHistory');
-    // show vendor details
-    Route::post('/details', 'Api\ApiVendorController@showVendorDetails');
-});
-
 
 
