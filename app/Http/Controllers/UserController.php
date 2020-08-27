@@ -206,7 +206,7 @@ class UserController extends Controller
             ];
 
             Mail::send('front-end.mails.forgot_pass_mail', $messageData, function($message) use ($email) {
-                $message->from('esellersonlineshop@gmail.com', 'eSellers Online Shop');
+                $message->from('esellersecommerse@gmail.com', 'E-Sellers Online Shop');
                 $message->to($email);
                 $message->subject('New Password');
             });

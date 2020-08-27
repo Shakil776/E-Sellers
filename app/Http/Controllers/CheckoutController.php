@@ -204,9 +204,9 @@ class CheckoutController extends Controller
                 ];
 
                 Mail::send('front-end.mails.order_email', $messageData, function($message) use ($email) {
-                    $message->from('esellersonlineshop@gmail.com', 'eSellers Online Shop');
+                    $message->from('esellersecommerse@gmail.com', 'E-Sellers Online Shop');
                     $message->to($email);
-                    $message->subject('Order Confirmation Mail');
+                    $message->subject('Order Confirmation Email');
                 });
 
                 return redirect('/thanks');
