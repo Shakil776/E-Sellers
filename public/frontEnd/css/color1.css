@@ -1486,8 +1486,12 @@ header {
     z-index: 9999; }
   .main-menu .brand-logo {
     display: inline-block;
-    padding-top: 35px;
-    padding-bottom: 35px; }
+    padding-top: 12px;
+    padding-bottom: 12px; }
+    .main-menu .brand-logo img{
+      width: 100px;
+      display: block;
+    }
   .main-menu .menu-left {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -6734,6 +6738,9 @@ footer {
 
 .footer-theme .footer-logo {
   margin-bottom: 18px; }
+  .footer-logo img{
+    width: 120px;
+}
 
 .footer-theme .sub-title h4 {
   color: #222222;
