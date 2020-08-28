@@ -72,12 +72,12 @@
                             @csrf
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" name="email" id="email" placeholder="Email" required="" autocomplete="off">
+                                <input type="text" class="form-control" name="email" id="email" placeholder="Email" autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="review">Password</label>
-                                <input type="password" name="password" autocomplete="off" class="form-control" id="review"
-                                    placeholder="Enter your password" required="">
+                                <input type="password" name="password" autocomplete="off" class="form-control" id="password"
+                                    placeholder="Enter your password">
                             </div>
                             <button type="submit" class="btn btn-solid">Login</button>
                             <a href="{{ url('forgot-password') }}" class="text-right text-success" style="margin-left: 30px; color: #000;">Forgot Password?</a>

@@ -71,6 +71,10 @@ class UserController extends Controller
             'password' => 'required | min:8'
         ]);
 
+        if(empty($request->email) || empty($request->password)){
+            return redirect()->back()->with('error', 'Field must not be empty.');
+        }
+
         $user = User::where('email', $request->email)->first();
 
         if (password_verify($request->password, $user->password)) {

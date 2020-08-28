@@ -105,6 +105,10 @@
                 </ul>
             </li>
 
+            <li>
+                <a href="{{ route('newsletter_subscriber') }}"><i class="fa fa-wrench fa-fw"></i>Newsletter Subscriber</a>
+            </li>
+
             
               
         </ul>

@@ -8,6 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 use App\Category;
+use App\Manufacturer;
 
 class Controller extends BaseController
 {
@@ -17,6 +18,12 @@ class Controller extends BaseController
     public static function mainCategories(){
     	$mainCategories = Category::where(['parent_id' => 0])->get();
     	return $mainCategories;
+    }
+
+    // footer bands common for all frontend page
+    public static function footerBands(){
+    	$footerBands = Manufacturer::where(['publication_status' => 1])->get();
+    	return $footerBands;
     }
 
 }

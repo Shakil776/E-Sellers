@@ -10,29 +10,28 @@ class SearchController extends Controller
 {
     public function search(Request $request) {
 
-        $keyword = $request->get('search-key');
+        if ($request->isMethod('post')) {
+            $keyword = $request->get('search-key');
 
-        if ($keyword != '') {
+            if ($keyword != '') {
+                $searchProducts = DB::table('products')
+                                ->join('categories', 'products.category_id', '=', 'categories.id')
+                                ->join('manufacturers', 'products.manufacturer_id', '=', 'manufacturers.id')
+                                ->where('product_name', 'LIKE', '%' .$keyword. '%')
+                                ->orWhere('product_price', 'LIKE', '%' .$keyword. '%')
+                                ->orWhere('product_code', 'LIKE', '%' .$keyword. '%')
+                                ->orWhere('category_name', 'LIKE', '%' .$keyword. '%')
+                                ->orWhere('manufacturer_name', 'LIKE', '%' .$keyword. '%')
+                                ->select('products.*', 'categories.category_name', 'manufacturers.manufacturer_name')
+                                ->paginate(30);
+            } else {
+                return redirect()->back();
+            }
 
-           $searchProducts = DB::table('products')
-                            ->join('categories', 'products.category_id', '=', 'categories.id')
-                            ->join('manufacturers', 'products.manufacturer_id', '=', 'manufacturers.id')
-                            ->where('product_name', 'LIKE', '%' .$keyword. '%')
-                            ->orWhere('product_price', 'LIKE', '%' .$keyword. '%')
-                            ->orWhere('product_code', 'LIKE', '%' .$keyword. '%')
-                            ->orWhere('category_name', 'LIKE', '%' .$keyword. '%')
-                            ->orWhere('manufacturer_name', 'LIKE', '%' .$keyword. '%')
-                            ->select('products.*', 'categories.category_name', 'manufacturers.manufacturer_name')
-                            ->paginate(30);
-        } else {
-            return redirect()->back();
-        }
-
-
-        if (!empty($searchProducts)) {
             return view('front-end.search.search_result', compact('searchProducts', 'keyword'));
+            
         }
-
+        return redirect()->back();
     }
 
 

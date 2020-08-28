@@ -1,11 +1,9 @@
 /*-----------------------------------------------------------------------------------
-
  Template Name:Multikart
  Template URI: themes.pixelstrap.com/multikart
  Description: This is E-commerce website
  Author: Pixelstrap
  Author URI: https://themeforest.net/user/pixelstrap
-
  ----------------------------------------------------------------------------------- */
 // 01.Pre loader
 // 02.Tap on Top
@@ -1457,6 +1455,58 @@ $(document).on('click', '.add_to_wishlist', function() {
             $("#shipping_address").val('');
         }
   });
+
+    // check subscriber email
+    function checkSubscriberEmail(){
+        var subscriber_email = $('#subscriber_email').val();
+        $.ajax({
+            type: 'post',
+            url: '/check-subscriber-email',
+            data: {subscriber_email:subscriber_email},
+            success: function(resp){
+                if(resp == "exists"){
+                    $("#subscriberMessage").show();
+                    $("#subsBtnSubmit").hide();
+                    $("#subscriberMessage").html("Subscriber email already exists.");
+                    $("#subscriberMessage").css("color","red");
+                }
+            },
+            error: function(){
+                alert('Error');
+            }
+        });
+    }
+    // enable subscriber button
+    function enableSubsButton(){
+        $("#subsBtnSubmit").show();
+        $("#subscriberMessage").hide();
+    }
+
+    // add subscriber email
+    function addSubscriberEmail(){
+        var subscriber_email = $('#subscriber_email').val();
+        $.ajax({
+            type: 'post',
+            url: '/add-subscriber-email',
+            data: {subscriber_email:subscriber_email},
+            success: function(resp){
+                if(resp == "exists"){
+                    $("#subscriberMessage").show();
+                    $("#subsBtnSubmit").hide();
+                    $("#subscriberMessage").html("Error: Subscriber email already exists.");
+                    $("#subscriberMessage").css("color","red");
+                }else if(resp == "saved"){
+                    $("#subscriberMessage").show();
+                    $("#subscriberMessage").html("Success: Thanks for Subscribing.");
+                    $("#subscriberMessage").css("color","green");
+                    $("#subscriber_email").val("");
+                }
+            },
+            error: function(){
+                alert('Error');
+            }
+        });
+    }
 
 
 
