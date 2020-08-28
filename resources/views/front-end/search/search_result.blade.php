@@ -65,7 +65,7 @@
                                 <button data-toggle="modal" title="Add to cart">
                                     <a href="javascript:" class="direct_add_cart" id="<?php echo $searchProduct->id; ?>"><i class="fas fa-cart-arrow-down"></i></a>
                                 </button>
-                                <a href="javascript:void(0)" title="Add to Wishlist">
+                                <a href="javascript:" title="Add to Wishlist" class="add_to_wishlist" id="<?php echo $searchProduct->id; ?>">
                                     <i class="far fa-heart"></i>
                                 </a>
                                 <a href="{{ asset('/product-details/'.$searchProduct->id) }}" title="Buy Now" class="quick-view">
@@ -105,9 +105,9 @@
                     </div>
                 </div>
                 @endforeach
-                {{ $searchProducts->links() }}
+                
                 @else
-                    <h2>No Result Found. Try to Search Again!</h2>
+                    <h2 class="text-center">No Result Found. Try to Search Again!</h2>
                 @endif
             </div>
         </div>

@@ -210,11 +210,16 @@
                                                                 <a href="{{ asset('/product-details/'.$bandProduct->id) }}"><img src="{{ asset($bandProduct->product_image) }}" class="img-fluid blur-up lazyload bg-img" alt=""></a>
                                                             </div>
                                                             <div class="cart-info cart-wrap">
-                                                                <button data-toggle="modal" data-target="#addtocart" title="Add to cart"><i class="ti-shopping-cart"></i></button> 
-                                                                <a href="javascript:void(0)" title="Add to Wishlist"><i
-                                                                        class="ti-heart" aria-hidden="true"></i></a> 
-                                                                <a href="#" data-toggle="modal" data-target="#quick-view" title="Quick View"><i
-                                                                        class="ti-search" aria-hidden="true"></i></a>
+                                                               <button data-toggle="modal" title="Add to cart">
+                                                                    <!-- <i class="ti-shopping-cart"></i> -->
+                                                                    <a href="javascript:" class="direct_add_cart" id="<?php echo $bandProduct->id; ?>"><i class="fas fa-cart-arrow-down"></i></a>
+                                                                </button> 
+                                                                <a href="javascript:" title="Add to Wishlist" class="add_to_wishlist" id="<?php echo $bandProduct->id; ?>">
+                                                                    <i class="far fa-heart"></i>
+                                                                </a>
+                                                                <a href="{{ asset('/product-details/'.$bandProduct->id) }}" title="Buy Now" class="quick-view">
+                                                                    <i class="fas fa-search"></i>
+                                                                </a>
 
                                                             </div>
                                                         </div>

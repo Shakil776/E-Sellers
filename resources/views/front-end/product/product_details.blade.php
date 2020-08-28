@@ -85,10 +85,9 @@
                             </div>
                             
                                 <div class="product-buttons">
-                                    
                                     <input type="submit" name="btn" value="Add To Cart" class="btn btn-solid" />
+                                    <a href="javascript:" title="Add to Wishlist" class="add_to_wishlist btn btn-info" id="<?php echo $productDetails->id; ?>">Add to WishList</a>
                                 </div>
-
                             </form>
 
 

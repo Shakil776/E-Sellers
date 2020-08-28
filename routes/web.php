@@ -21,6 +21,10 @@ Route::match(['get', 'post'], '/cart-remove/{id}', 'CartController@deleteCart');
 Route::match(['get', 'post'], '/cart-update', 'CartController@updateCart');
 // search product
 Route::match(['get', 'post'], '/search', 'SearchController@search');
+// check subscriber email
+Route::post('/check-subscriber-email', 'NewsletterController@checkSubscriberEmail');
+// add subscriber email
+Route::post('/add-subscriber-email', 'NewsletterController@addSubscriberEmail');
 
 // prevent route if trying to access without login
 Route::group(['middleware' => 'front'], function() {
@@ -338,6 +342,15 @@ Route::group(["middleware" => "admin"], function() {
 	Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 	// admin logout
 	Route::post('admin-logout', 'AdminAuthenticationController@adminLogout')->name('admin-logout');
+	
+	// show newsletter subscriber
+	Route::get('show-newsletter', 'NewsletterController@showNewsletter')->name('newsletter_subscriber');
+	// update newsletter status
+	Route::get('update-newsletter-status/{id}/{status}', 'NewsletterController@updateNewsletterStatus');	
+	// delete newsletter
+	Route::get('delete_newsletter/{id}', 'NewsletterController@deleteNewsletter');
+	// export newsletter
+	// Route::get('export-newsletter', 'NewsletterController@exportNewsletter');
 
 });
 

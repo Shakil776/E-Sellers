@@ -52,6 +52,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-12">
+                @if(count($customer_wishlists) > 0)
                     <table class="table cart-table table-responsive-xs">
                         <thead>
                             <tr class="table-head">
@@ -62,6 +63,7 @@
                             </tr>
                         </thead>
                         <tbody>
+                    
                         @foreach($customer_wishlists as $wishlist)
                             <tr>
                                 <td>
@@ -87,8 +89,10 @@
                             </tr>
                         @endforeach
                         </tbody>
-
                     </table>
+                    @else
+                        <h3 class="text-center">You have no products in your wishlist.</h3>
+                    @endif
                 </div>
             </div>
             <div class="row wishlist-buttons">
