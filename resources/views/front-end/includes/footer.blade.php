@@ -75,6 +75,7 @@
                                     <li><a href="#">shipping & return</a></li>
                                     <li><a href="#">secure shopping</a></li>
                                     <li><a href="#">affiliates</a></li>
+                                    <li><a href="#">Contact</a></li>
                                 </ul>
                             </div>
                         </div>

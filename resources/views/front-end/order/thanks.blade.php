@@ -10,7 +10,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="success-text"><i class="fa fa-check-circle" aria-hidden="true"></i>
-                        <h2>thank you</h2>
+                        <h2>Thank you</h2>
                         <p>Dear <strong>@if(Session::has('customerName')){{ Session::get('customerName') }}</strong>, @endif Your Order Has been placed Successfully.</p>
                         <p>Order No : @if(Session::has('orderDate')){{ date('dmY', strtotime(Session::get('orderDate'))).Session::get('orderId')  }} @endif</p>
                         <p>Total Payable amount : @if(Session::has('orderTotal'))Tk. {{ Session::get('orderTotal') }} @endif</p>
@@ -32,8 +32,7 @@
 
 
                         <div class="row product-order-detail">
-
-                            <table>
+                            <table class="table table-border" style="width:100%">
                                 <thead>
                                     <tr class="text-center">
                                         <th width="25%">Product Image</th>
@@ -77,7 +76,7 @@
                             </ul>
                         </div>
                         <div class="col-sm-6">
-                            <h4>shipping address</h4>
+                            <h4>Shipping Address</h4>
                             <ul class="order-detail">
                                 <li>@if(!empty($shippingDetails->shipping_name)) {{ $shippingDetails->shipping_name }} @endif</li>
                                 <li>@if(!empty($shippingDetails->shipping_address)) {{ $shippingDetails->shipping_address }} @endif</li>
