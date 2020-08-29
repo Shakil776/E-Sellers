@@ -284,10 +284,10 @@
                                 <nav id="main-nav">
                                     <div class="toggle-nav"><i class="fa fa-bars sidebar-bar"></i></div>
                                     <ul id="main-menu" class="sm pixelstrap sm-horizontal">
-                                        {{-- <li>
+                                        <li>
                                             <div class="mobile-back text-right">Back<i class="fa fa-angle-right pl-2"
                                                     aria-hidden="true"></i></div>
-                                        </li> --}}
+                                        </li>
                                         @foreach($mainCategories as $cat)
                                         <li class="mega" id="hover-cls"><a href="{{ asset('/product-category/'.$cat->url) }}">{{ $cat->category_name }} </a>
                                             <ul class="mega-menu full-mega-menu">

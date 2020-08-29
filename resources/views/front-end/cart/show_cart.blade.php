@@ -53,7 +53,7 @@
             <div class="row">
                 <div class="col-sm-12">
                 @if($countCartItem != 0)
-                    <table class="table cart-table table-responsive-xs">
+                    <table class="table cart-table table-responsive">
                         <thead>
                             <tr class="table-head">
                                 <th scope="col">image</th>

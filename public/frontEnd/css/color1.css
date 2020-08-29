@@ -7601,27 +7601,34 @@ footer {
       margin-right: 5px; }
 
 .product-pagination {
-  border-bottom: 1px solid #dddddd;
-  border-top: 1px solid #dddddd;
-  margin: 50px 0; }
+  margin: 40px 0; }
   .product-pagination .pagination {
-    border-radius: 0; }
+    border-radius: 0;
+    display: flex;
+    float: right; }
     .product-pagination .pagination .page-item {
       border-radius: 0; }
-      .product-pagination .pagination .page-item a {
-        padding: 18px;
-        border-bottom: 0;
-        border-top: 0;
+      .product-pagination .pagination .page-item a ,
+      .page-item.disabled .page-link{
+        padding: 0.5rem 0.75rem;
         color: #777777;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0; }
-      .product-pagination .pagination .page-item:last-child .page-link {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0; }
+        font-size: 18px;
+      }
     .product-pagination .pagination .page-item.active a {
       color: var(--theme-deafult);
       background-color: #ffffff;
       border-color: #dddddd; }
+      .page-item.active .page-link {
+        z-index: 1;
+        color: #fff;
+        font-size: 18px;
+        background-color: #ff4c3b;
+        border-color: #ff4c3b;
+    }
+    .page-item.disabled .page-link {
+      background-color: transparent;
+      border-color: #ddd; 
+  }
   .product-pagination .product-search-count-bottom {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
@@ -12010,7 +12017,12 @@ body.rtl {
 
 .rtl .collection-collapse-block .collection-collapse-block-content .collection-brand-filter .collection-filter-checkbox {
   text-align: right; }
-
+.collection-brand-filter .custom-control{
+  padding-left: 0px;
+}
+.custom-control-label::before{
+  background: none;
+}
 .rtl .theme-modal .modal-dialog .quick-view-modal button.close {
   left: 10px;
   right: 0; }
@@ -14865,8 +14877,14 @@ body.dark {
     left: 64%; } }
 
 @media (max-width: 480px) {
-  .brand-logo img {
-    height: 25px; } }
+  .main-menu .brand-logo img {
+    height: auto;
+    width: 65px; } 
+  .alert{
+    width:70% !important;
+  }}
+.zoomContainer{ z-index: 9999;}
+.zoomWindow{ z-index: 9999;}
 
 /*=====================
     29.Responsive CSS start
