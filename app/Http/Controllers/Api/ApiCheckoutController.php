@@ -16,11 +16,21 @@ class ApiCheckoutController extends Controller
     public function checkout(Request $request){
         $order = $request->all();
 
+        // shipping
+        $shipping = new Shipping();
+        $shipping->customer_id = $order['customer_id'];
+        $shipping->shipping_name = $order["address"]['shipping_name'];
+        $shipping->shipping_email = $order["address"]['shipping_email'];
+        $shipping->shipping_mobile = $order["address"]['shipping_mobile'];
+        $shipping->shipping_address = $order["address"]['shipping_address'];
+        $shipping->save();
+        $shipping_id = $shipping->id;
+
         $orderData = new Order();
         $orderData->customer_id = $order['customer_id'];
+        $orderData->shipping_id = $shipping_id;
         $orderData->order_total = $order['order_total'];
-        $orderData->order_status = 'pending';
-        $orderData->has_different_shipping = $order['has_different_shipping'];
+        $orderData->order_status = 'New';
         $orderData->save();
         $order_id = $orderData->id;
 
@@ -42,22 +52,10 @@ class ApiCheckoutController extends Controller
         $payment = new Payment();
         $payment->order_id = $order_id;
         $payment->payment_type = $order['payment_type'];
-        $payment->payment_status = 'pending';
+        $payment->payment_status = 'Pending';
         $payment->save();
 
-        if(!empty($order["address"])){
-            $uAddress = new Shipping();
-            $uAddress->order_id = $order_id;
-            $uAddress->receiver_name = $order["address"]['receiver_name'];
-            $uAddress->phone = $order["address"]['phone'];
-            $uAddress->address = $order["address"]['address'];
-            $uAddress->city = $order["address"]['city'];
-            $uAddress->zip = $order["address"]['zip'];
-            $uAddress->country = $order["address"]['country'];
-            $uAddress->save();
-        }
-
-        if ($orderData && $orderDetails && $payment && $uAddress) {
+        if ($orderData && $orderDetails && $payment && $shipping) {
             return response()->json([
                 'status' => 1,
                 'message' => 'Success.',

@@ -254,6 +254,7 @@
     Session::forget('orderTotal');
     Session::forget('orderId');
     Session::forget('orderDate');
+    Session::forget('shippingId');
 @endphp
 
 

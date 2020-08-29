@@ -81,7 +81,7 @@
                             <ul class="order-detail">
                                 <li>@if(!empty($shippingDetails->shipping_name)) {{ $shippingDetails->shipping_name }} @endif</li>
                                 <li>@if(!empty($shippingDetails->shipping_address)) {{ $shippingDetails->shipping_address }} @endif</li>
-                                <li>@if(!empty($shippingDetails->shipping_email)) {{ $shippingDetails->shipping_email }} @endif</li>
+                                <li style="text-transform: lowercase;">@if(!empty($shippingDetails->shipping_email)) {{ $shippingDetails->shipping_email }} @endif</li>
                                 <li>@if(!empty($shippingDetails->shipping_mobile)) {{ $shippingDetails->shipping_mobile }} @endif</li>
                             </ul>
                         </div>
@@ -99,6 +99,7 @@
     Session::forget('orderTotal');
     Session::forget('orderId');
     Session::forget('orderDate');
+    Session::forget('shippingId');
 @endphp
 
 
