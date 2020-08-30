@@ -1472,7 +1472,7 @@ $(document).on('click', '.add_to_wishlist', function() {
                 }
             },
             error: function(){
-                alert('Error');
+                console.log('Error');
             }
         });
     }
@@ -1503,7 +1503,7 @@ $(document).on('click', '.add_to_wishlist', function() {
                 }
             },
             error: function(){
-                alert('Error');
+                console.log('Error');
             }
         });
     }

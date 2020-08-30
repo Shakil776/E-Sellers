@@ -72,9 +72,10 @@
                         </div>
                         <div class="footer-contant">
                             <ul>
-                                <li><a href="#">shipping & return</a></li>
-                                <li><a href="#">secure shopping</a></li>
+                                <li><a href="{{ url('shipping-return') }}">shipping & return</a></li>
+                                <li><a href="">secure shopping</a></li>
                                 <li><a href="#">affiliates</a></li>
+                                <li><a href="{{ url('contact-us') }}">contact Us</a></li>
                             </ul>
                         </div>
                     </div>

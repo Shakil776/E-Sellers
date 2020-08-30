@@ -25,6 +25,10 @@ Route::match(['get', 'post'], '/search', 'SearchController@search');
 Route::post('/check-subscriber-email', 'NewsletterController@checkSubscriberEmail');
 // add subscriber email
 Route::post('/add-subscriber-email', 'NewsletterController@addSubscriberEmail');
+// shipping and return
+Route::get('/shipping-return', 'ContactController@shippingReturn');
+// contact us
+Route::match(['get', 'post'], '/contact-us', 'ContactController@contact');
 
 // prevent route if trying to access without login
 Route::group(['middleware' => 'front'], function() {

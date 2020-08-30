@@ -1,6 +1,6 @@
 @extends('front-end.master')
 
-@section('title', 'Login')
+@section('title', 'Contact Us')
 
 @section('main-content')
 
@@ -70,23 +70,23 @@
                     <form class="theme-form">
                         <div class="form-row">
                             <div class="col-md-6">
-                                <label for="name">First Name</label>
-                                <input type="text" class="form-control" id="name" placeholder="Enter Your name" required="">
+                                <label for="name">First Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="name" placeholder="Enter First name" required="">
                             </div>
                             <div class="col-md-6">
-                                <label for="email">Last Name</label>
-                                <input type="text" class="form-control" id="last-name" placeholder="Email" required="">
+                                <label for="email">Last Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="last-name" placeholder="Enter Last Name" required="">
                             </div>
                             <div class="col-md-6">
-                                <label for="review">Phone number</label>
+                                <label for="review">Phone number <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="review" placeholder="Enter your number" required="">
                             </div>
                             <div class="col-md-6">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email" placeholder="Email" required="">
+                                <input type="text" class="form-control" id="email" placeholder="Enter Email Address" required="">
                             </div>
                             <div class="col-md-12">
-                                <label for="review">Write Your Message</label>
+                                <label for="review">Write Your Message <span class="text-danger">*</span></label>
                                 <textarea class="form-control" placeholder="Write Your Message" id="exampleFormControlTextarea1" rows="6"></textarea>
                             </div>
                             <div class="col-md-12">
