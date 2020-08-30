@@ -66,13 +66,21 @@ class UserController extends Controller
     // customer login 
     public function checkCustomerLogin(Request $request) {
 
-        $this->validate($request, [
-            'email' => 'required| email',
-            'password' => 'required | min:8'
-        ]);
+        $validator = Validator::make(array(
+            "email" => $request->email,
+            "password" => $request->password
+        ),array(
+            "email" => "required",
+            "password" => "required"
+        ));
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
 
         if(empty($request->email) || empty($request->password)){
-            return redirect()->back()->with('error', 'Field must not be empty.');
+            $error_message = "Field must not be empty.";
+            return redirect()->back()->withErrors($error_message);
         }
 
         $user = User::where('email', $request->email)->first();
@@ -82,7 +90,8 @@ class UserController extends Controller
             Session::put('customerName', $user->name);
             return redirect('/cart-show');
         } else {
-            return redirect()->back()->with('error', 'Invalid Credentials!');
+            $error_message = "Invalid Credentials!";
+            return redirect()->back()->withErrors($error_message);
         }
     }
 

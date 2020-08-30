@@ -5,18 +5,9 @@
 @section('main-content')
 
     {{-- message --}}
-     @if(Session::has('success'))
+     @if(session()->has("message"))
         <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-          <strong>Success! </strong>  {{ Session::get('success') }}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-    @endif
-
-    @if(Session::has('error'))
-        <div class="alert alert-danger alert-dismissible fade show text-center" role="alert" id="errorMsgSowLogin">
-          <strong>Ooops! </strong>  {{ Session::get('error') }}
+          <strong>Success! </strong>  {{ session('message') }}
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -24,12 +15,13 @@
     @endif
 
     {{-- laravel validation error show message --}}
-    @if ($errors->any())
+    @if(count($errors) > 0)
         <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
             <ul>
-                @foreach ($errors->all() as $error)
+                @foreach($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
+                <p>{{ session('message') }}</p>
             </ul>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
