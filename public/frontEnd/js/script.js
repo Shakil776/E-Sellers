@@ -359,8 +359,8 @@
      13. slick slider
      ==========================*/
     $('.slide-1').slick({
-        // autoplay: true,
-        // autoplaySpeed: 5000
+        autoplay: true,
+        autoplaySpeed: 5000
     });
 
     $('.slide-2').slick({

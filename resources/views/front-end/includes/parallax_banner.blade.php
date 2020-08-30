@@ -1,6 +1,6 @@
 <section class="p-0">
         <div class="full-banner parallax text-center p-left">
-            <img src="{{ asset('frontEnd')}}/images/parallax/1.jpg" alt="" class="bg-img blur-up lazyload">
+            <img src="{{ asset('frontEnd')}}/images/parallax/10.jpg" alt="" class="bg-img blur-up lazyload">
             <div class="container">
                 <div class="row">
                     <div class="col">
