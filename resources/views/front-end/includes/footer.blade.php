@@ -16,13 +16,13 @@
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <span id="subscriberMessage" style="display:none;"></span>
+                        <span id="subscriberMessage" style="display:none"></span>
                         <form action="javascript:void(0);" class="form-inline subscribe-form auth-form needs-validation" type="post">
                         @csrf
                             <div class="form-group mx-sm-3">
                                 <input onfocus="enableSubsButton();" onfocusout="checkSubscriberEmail();" type="email" class="form-control" name="subscriber_email" id="subscriber_email" placeholder="Enter your Email" required="required">
                             </div>
-                            <button onclick="checkSubscriberEmail(); addSubscriberEmail();" type="submit" class="btn btn-solid" id="subsBtnSubmit">subscribe</button>
+                            <button  style="display:block" onclick="checkSubscriberEmail(); addSubscriberEmail();" type="submit" class="btn btn-solid" id="subsBtnSubmit">subscribe</button>
                             
                         </form>
                     </div>
@@ -70,19 +70,12 @@
                         <div class="footer-title">
                             <h4>why we choose</h4>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="sub-title">
-                            <div class="footer-title">
-                                <h4>why we choose</h4>
-                            </div>
-                            <div class="footer-contant">
-                                <ul>
-                                    <li><a href="#">shipping & return</a></li>
-                                    <li><a href="#">secure shopping</a></li>
-                                    <li><a href="#">affiliates</a></li>
-                                </ul>
-                            </div>
+                        <div class="footer-contant">
+                            <ul>
+                                <li><a href="#">shipping & return</a></li>
+                                <li><a href="#">secure shopping</a></li>
+                                <li><a href="#">affiliates</a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -96,7 +89,7 @@
                                 <li><i class="fa fa-map-marker"></i>Dhaka, Bangladesh
                                 </li>
                                 <li><i class="fa fa-phone"></i>Call : 123-456-7898</li>
-                                <li><i class="fa fa-envelope-o"></i>Email: <a href="javascript:" style="text-transform:lowercase">e-sellers@gmail.com</a></li>
+                                <li><i class="fa fa-envelope"></i>Email: <a href="javascript:" style="text-transform:lowercase">e-sellers@gmail.com</a></li>
                             </ul>
                         </div>
                     </div>
