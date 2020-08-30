@@ -73,8 +73,8 @@
                         <div class="footer-contant">
                             <ul>
                                 <li><a href="{{ url('shipping-return') }}">shipping & return</a></li>
-                                <li><a href="">secure shopping</a></li>
-                                <li><a href="#">affiliates</a></li>
+                                <li><a href="{{ url('secure-shopping') }}">secure shopping</a></li>
+                                <li><a href="{{ url('affiliates')}}">affiliates</a></li>
                                 <li><a href="{{ url('contact-us') }}">contact Us</a></li>
                             </ul>
                         </div>
@@ -89,8 +89,8 @@
                             <ul class="contact-list">
                                 <li><i class="fa fa-map-marker"></i>Dhaka, Bangladesh
                                 </li>
-                                <li><i class="fa fa-phone"></i>Call : 123-456-7898</li>
-                                <li><i class="fa fa-envelope"></i>Email: <a href="javascript:" style="text-transform:lowercase">e-sellers@gmail.com</a></li>
+                                <li><i class="fa fa-phone"></i> 123-456-7898</li>
+                                <li><i class="fa fa-envelope"></i> <a href="javascript:" style="text-transform:lowercase">esellersecommerse@gmail.com</a></li>
                             </ul>
                         </div>
                     </div>

@@ -4045,6 +4045,30 @@ header {
       color: #fff;
       letter-spacing: 0.1em;
       margin-bottom: -6px; }
+      .static-content span.number-content{
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        margin:20px auto 10px;
+        display: inline-block;
+        color: #fff;;
+        background: #ff4c3b;
+      }
+    .static-content p {
+        font-size: 15px;
+        color: #777777;
+        line-height: 1.5;
+    }
+    .static-content ul{
+      list-style-type: circle;
+      list-style-position: inside;
+      padding-left: 15px;
+      margin-bottom: 10px;
+  }
+  .static-content ul li{
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
   .collection-banner.christmas-banner .contain-banner {
     position: absolute;
     top: 0;
@@ -14565,7 +14589,7 @@ body.dark {
   .pixelstrap a {
     font-size: 13px; }
     .pixelstrap a:hover, .pixelstrap a:active {
-      font-size: 14px; } }
+      font-size: 13px; } }
 
 @media (max-width: 1199px) {
   .mega-box .link-section .demo ul li a span img {

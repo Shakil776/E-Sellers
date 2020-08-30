@@ -27,6 +27,10 @@ Route::post('/check-subscriber-email', 'NewsletterController@checkSubscriberEmai
 Route::post('/add-subscriber-email', 'NewsletterController@addSubscriberEmail');
 // shipping and return
 Route::get('/shipping-return', 'ContactController@shippingReturn');
+// secure shopping
+Route:: get('/secure-shopping', 'ContactController@secureshopping');
+// affiliates
+Route:: get('/affiliates', 'ContactController@affiliates');
 // contact us
 Route::get('/contact-us', 'ContactController@showContact');
 // contact us
