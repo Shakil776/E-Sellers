@@ -7,9 +7,19 @@ use App\Contact;
 
 class ContactController extends Controller
 {
-     // secure shopping
+     // shipping
      public function shippingReturn(){
         return view('front-end.content.shipping');
+    }
+
+    //secue shopping
+    public function secureshopping(){
+        return view('front-end.content.secure');
+    }
+
+    //affiliates
+    public function affiliates(){
+        return view('front-end.content.affiliate');
     }
 
     // show contact us

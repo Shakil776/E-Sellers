@@ -1,6 +1,6 @@
 @extends('front-end.master')
 
-@section('title', 'Login')
+@section('title', 'Shipping & Return')
 
 @section('main-content')
 
@@ -27,7 +27,7 @@
     <!-- breadcrumb End -->
 
         <!--section start-->
-        <section class="login-page section-b-space">
+        <section class="login-page section-b-space static-content">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">

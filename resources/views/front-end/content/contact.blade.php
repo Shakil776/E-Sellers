@@ -31,13 +31,13 @@
         <div class="container">
             <div class="row section-b-space">
                 <div class="col-lg-7 map">
-                <div style="width: 100%"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=dhaka%20international%20university+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+                <div style="width: 100%;height:350px;"><iframe width="100%" height="600" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=dhaka%20international%20university+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
                 </div>
                 <div class="col-lg-5">
                     <div class="contact-right">
                         <ul>
                             <li>
-                                <div class="contact-icon"><img src="../assets/images/icon/phone.png" alt="Generic placeholder image">
+                                <div class="contact-icon"><img src="{{ asset('frontEnd')}}/images/icon/phone.png" alt="Generic placeholder image">
                                     <h6>Contact Us</h6>
                                 </div>
                                 <div class="media-body">
@@ -58,7 +58,7 @@
                                     <h6>Email</h6>
                                 </div>
                                 <div class="media-body">
-                                    <p>e-sellers@gmail.com</p>
+                                    <p>esellersecommerse@gmail.com</p>
                                 </div>
                             </li>
                         </ul>
