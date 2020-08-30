@@ -55,16 +55,4 @@ class NewsletterController extends Controller
         Newsletter::find($id)->delete();
         return redirect()->back()->with('success', 'Newsletter deleted Successfully.');
     }
-
-    // export newsletter
-    // public function exportNewsletter(){
-    //    $newsletterData = Newsletter::select('id', 'email', 'created_at')->where('status', 1)->orderBy('id', 'DESC')->get();
-    //    $newsletterData = json_decode(json_encode($newsletterData),true);
-
-    //    return Excel::create('subscribers'.rand(), function($excel) use($newsletterData){
-    //        $excel->sheet('mysheet', function($sheet) use($newsletterData){
-    //            $sheet->fromArray($newsletterData);
-    //        });
-    //    })->download('xlsx');
-    // }
 }

@@ -28,7 +28,9 @@ Route::post('/add-subscriber-email', 'NewsletterController@addSubscriberEmail');
 // shipping and return
 Route::get('/shipping-return', 'ContactController@shippingReturn');
 // contact us
-Route::match(['get', 'post'], '/contact-us', 'ContactController@contact');
+Route::get('/contact-us', 'ContactController@showContact');
+// contact us
+Route::post('/contact', 'ContactController@contact');
 
 // prevent route if trying to access without login
 Route::group(['middleware' => 'front'], function() {

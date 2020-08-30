@@ -67,30 +67,32 @@
             </div>
             <div class="row">
                 <div class="col-sm-12">
-                    <form class="theme-form">
+                    <div style="display:none;" id="showContactMessage" class="text-center"><span></span></div>
+                    <form class="theme-form" action="javascript:void(0);" type="post">
+                        @csrf
                         <div class="form-row">
                             <div class="col-md-6">
                                 <label for="name">First Name <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="name" placeholder="Enter First name" required="">
+                                <input type="text" class="form-control" id="contact_f_name" placeholder="Enter First name">
                             </div>
                             <div class="col-md-6">
                                 <label for="email">Last Name <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="last-name" placeholder="Enter Last Name" required="">
+                                <input type="text" class="form-control" id="contact_l_name" placeholder="Enter Last Name">
                             </div>
                             <div class="col-md-6">
                                 <label for="review">Phone number <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control" id="review" placeholder="Enter your number" required="">
+                                <input type="text" class="form-control" id="contact_phone" placeholder="Enter Phone number">
                             </div>
                             <div class="col-md-6">
-                                <label for="email">Email</label>
-                                <input type="text" class="form-control" id="email" placeholder="Enter Email Address" required="">
+                                <label for="email">Email <span class="text-danger">*</span></label>
+                                <input type="email" class="form-control" id="contact_email" placeholder="Enter Email Address">
                             </div>
                             <div class="col-md-12">
-                                <label for="review">Write Your Message <span class="text-danger">*</span></label>
-                                <textarea class="form-control" placeholder="Write Your Message" id="exampleFormControlTextarea1" rows="6"></textarea>
+                                <label for="review">Write Your Message</label>
+                                <textarea class="form-control" placeholder="Write Your Message" id="contact_message" rows="6"></textarea>
                             </div>
                             <div class="col-md-12">
-                                <button class="btn btn-solid" type="submit">Send Your Message</button>
+                                <button onclick="addContactDetails();" id="contactDetailsSubmitBtn" class="btn btn-solid" type="submit">Send Your Message</button>
                             </div>
                         </div>
                     </form>

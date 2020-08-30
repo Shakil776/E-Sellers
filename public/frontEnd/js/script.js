@@ -1503,19 +1503,11 @@ $(document).on('click', '.add_to_wishlist', function() {
                 }
             },
             error: function(){
-                console.log('Error');
+                 console.log('Error');
             }
         });
     }
 
-
-
-// csrf token setup
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
 
 // select payment method
 function selectPaymentMethod() {
@@ -1526,3 +1518,51 @@ function selectPaymentMethod() {
         return false;
     }
 }
+
+// add contact details into database
+function addContactDetails(){
+    var first_name = $('#contact_f_name').val();
+    var last_name = $('#contact_l_name').val();
+    var phone = $('#contact_phone').val();
+    var email = $('#contact_email').val();
+    var message = $('#contact_message').val();
+
+    $.ajax({
+        type: 'post',
+        url: '/contact',
+        data: {
+            first_name: first_name,
+            last_name: last_name,
+            phone: phone,
+            email: email,
+            message: message
+        },
+        success: function(resp){
+            if(resp == "errors"){
+                $("#showContactMessage").show();
+                $("#showContactMessage").html("Error: Field must not be empty.");
+                $("#showContactMessage").css("color","red");
+            } else if(resp == "saved"){
+                $("#showContactMessage").show();
+                $("#showContactMessage").html("Success: Thanks for contacting with us. We will contact you as soon as possible");
+                $("#showContactMessage").css("color","green");
+                $('#contact_f_name').val("");
+                $('#contact_l_name').val("");
+                $('#contact_phone').val("");
+                $('#contact_email').val("");
+                $('#contact_message').val("");
+            }
+        },
+        error: function(){
+            console.log('Error');
+        }
+    });
+}
+
+
+// csrf token setup
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
