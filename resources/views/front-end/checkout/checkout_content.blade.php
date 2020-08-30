@@ -133,41 +133,35 @@
 
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label">Name <span class="text-danger">*</span></div>
-                                        <input type="text" name="shipping_name" @if(!empty($shippingDetails->shipping_name )) value="{{ $shippingDetails->shipping_name }}" @endif placeholder="Name" id="shipping_name" required="" autocomplete="off">
+                                        <input type="text" name="shipping_name" placeholder="Name" id="shipping_name" required="" autocomplete="off">
                                     </div>
 
                                     <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label">Email</div>
-                                        <input type="email" name="shipping_email" placeholder="Email" autocomplete="off" @if(!empty($shippingDetails->shipping_email)) value="{{ $shippingDetails->shipping_email }}" @endif id="shipping_email">
+                                        <input type="email" name="shipping_email" placeholder="Email" autocomplete="off" id="shipping_email">
                                     </div>
 
                                      <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label">Mobile <span class="text-danger">*</span></div>
-                                        <input type="text" name="shipping_mobile" placeholder="Mobile" required="" autocomplete="off" id="shipping_mobile" @if(!empty($shippingDetails->shipping_mobile )) value="{{ $shippingDetails->shipping_mobile }}" @endif>
+                                        <input type="text" name="shipping_mobile" placeholder="Mobile" required="" autocomplete="off" id="shipping_mobile">
                                     </div>
-
-                                    @php
-                                        if (!empty($shippingDetails->shipping_address)) {
-                                            $sipping_details = explode(',', $shippingDetails->shipping_address);
-                                        }
-                                    @endphp
 
                                     
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Region/State <span class="text-danger">*</span></div>
-                                        <input type="text" name="shipping_state" placeholder="Region/State" required="" autocomplete="off" id="shipping_state" @if(!empty($sipping_details[2]))value="{{ $sipping_details[2] }}" @endif>
+                                        <input type="text" name="shipping_state" placeholder="Region/State" required="" autocomplete="off" id="shipping_state">
                                     </div>
 
                                    
 
                                     <div class="form-group col-md-6 col-sm-6 col-xs-12">
                                         <div class="field-label">Town/City <span class="text-danger">*</span></div>
-                                        <input type="text" name="shipping_city" id="shipping_city" required="" autocomplete="off" placeholder="Town/City" @if(!empty($sipping_details[1]))value="{{ $sipping_details[1] }}" @endif>
+                                        <input type="text" name="shipping_city" id="shipping_city" required="" autocomplete="off" placeholder="Town/City">
                                     </div>
 
                                      <div class="form-group col-md-12 col-sm-12 col-xs-12">
                                         <div class="field-label">Address <span class="text-danger">*</span></div>
-                                         <textarea class="form-control" name="shipping_address" id="shipping_address" placeholder="House/Flat Address" required="" autocomplete="off" rows="5">@if(!empty($sipping_details[0])){{ str_replace('-', ',', $sipping_details[0]) }}@endif</textarea>
+                                         <textarea class="form-control" name="shipping_address" id="shipping_address" placeholder="House/Flat Address" required="" autocomplete="off" rows="5"></textarea>
                                     </div>
 
                                 </div>

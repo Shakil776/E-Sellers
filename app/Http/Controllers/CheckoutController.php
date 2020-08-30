@@ -21,13 +21,6 @@ class CheckoutController extends Controller
         $user_id = Session::get('customerId');
         $user = User::findOrFail($user_id);
 
-        // check shipping address already exists or not
-        $shippingCount = Shipping::where('customer_id', $user_id)->count();
-        $shippingDetails = array();
-        if ($shippingCount > 0) {
-            $shippingDetails = Shipping::where('customer_id', $user_id)->first();
-        }
-
         if ($request->isMethod('post')) {
 
             $this->validate($request, [
@@ -76,63 +69,31 @@ class CheckoutController extends Controller
 
             $user->save();
 
-
-            if ($shippingCount > 0) {
-                // update shipping address
-                $shipping = Shipping::where('customer_id', $user_id)->first();
-
-                $shipping->shipping_name = $data['shipping_name'];
-
-                if (empty($data['shipping_email'])) {
-                    if(!empty($shipping->shipping_email)){
-                        $shipping->shipping_email = $shipping->shipping_email;
-                    } else {
-                        $shipping->shipping_email = '';
-                    }
-                } else {
-                    $shipping->shipping_email = $data['shipping_email'];
-                }
-
-                $shipping->shipping_mobile = $data['shipping_mobile'];
-
-                if (empty($data['shipping_state']) || empty($data['shipping_city']) || empty($data['shipping_address'])) {
-                    if (!empty($user->shipping_address)) {
-                        $shipping->shipping_address = $shipping->shipping_address;
-                    }else{
-                        $shipping->shipping_address = '';
-                    }
-                } else {
-                    $shipping->shipping_address = str_replace(',', '-', $data['shipping_address']).', '.$data['shipping_city'].', '.$data['shipping_state'];
-                }
-
-                $shipping->update();
-
-            } else {
-                // add new shipping address
-                $shipping = new Shipping();
-                $shipping->customer_id =  $user_id;
-                $shipping->shipping_name = $data['shipping_name'];
-                if (!empty($data['shipping_email'])) {
-                    $shipping->shipping_email = $data['shipping_email'];
-                }else{
-                    $shipping->shipping_email = '';
-                }
-                $shipping->shipping_mobile = $data['shipping_mobile'];
-                $shipping->shipping_address = str_replace(',', '-', $data['shipping_address']).', '.$data['shipping_city'].', '.$data['shipping_state'];
-                $shipping->save();
+            // add new shipping address
+            $shipping = new Shipping();
+            $shipping->customer_id =  $user_id;
+            $shipping->shipping_name = $data['shipping_name'];
+            if (!empty($data['shipping_email'])) {
+                $shipping->shipping_email = $data['shipping_email'];
+            }else{
+                $shipping->shipping_email = '';
             }
+            $shipping->shipping_mobile = $data['shipping_mobile'];
+            $shipping->shipping_address = str_replace(',', '-', $data['shipping_address']).', '.$data['shipping_city'].', '.$data['shipping_state'];
+            $shipping->save();
+            Session::put('shippingId', $shipping->id);
+
             return redirect()->action('CheckoutController@orderReview');
         }
-    	return view('front-end.checkout.checkout_content', compact('user', 'shippingDetails'));
+    	return view('front-end.checkout.checkout_content', compact('user'));
     }
 
     // order review
     public function orderReview(){
         $user_id = Session::get('customerId');
         $user = User::findOrFail($user_id);
-        $shippingDetails = Shipping::where('customer_id', $user_id)->first();
+        $shippingDetails = Shipping::find(Session::get('shippingId'));
         $cartItems = Cart::content();
-
         return view('front-end.order.order_review_content', compact('user', 'shippingDetails', 'cartItems'));
     }
 
@@ -144,14 +105,11 @@ class CheckoutController extends Controller
             $user_id = Session::get('customerId');
             // get user info
             $user = User::find($user_id);
-            // get shipping details with id
-            $shippingDetails = Shipping::where('customer_id', $user_id)->first();
-
-
+            
             // insert data into order table
             $order = new Order();
             $order->customer_id = $user_id;
-            $order->shipping_id = $shippingDetails->id;
+            $order->shipping_id = Session::get('shippingId');
             $order->order_total = round($data['orderTotal']);
             $order->order_status = 'New';
             $order->save();
@@ -223,7 +181,7 @@ class CheckoutController extends Controller
     public function completeOrder(){
         $user_id = Session::get('customerId');
          // get shipping details with id
-        $shippingDetails = Shipping::where('customer_id', $user_id)->first();
+        $shippingDetails = Shipping::find(Session::get('shippingId'));
         $cartItems = Cart::content();
         return view('front-end.order.thanks', compact('cartItems', 'shippingDetails'));
     }
@@ -232,7 +190,7 @@ class CheckoutController extends Controller
     public function stripe(Request $request){
         $user_id = Session::get('customerId');
          // get shipping details with id
-        $shippingDetails = Shipping::where('customer_id', $user_id)->first();
+        $shippingDetails = Shipping::find(Session::get('shippingId'));
         $cartItems = Cart::content();
 
 //        if ($request->isMethod('post')){
@@ -255,79 +213,4 @@ class CheckoutController extends Controller
         return view('front-end.order.stripe', compact('cartItems','shippingDetails'));
     }
 
-
-
-    //save shipping info
-    // public function saveShippingInfo(Request $request) {
-    //     $shipping = new Shipping();
-    //     $shipping->name = $request->name;
-    //     $shipping->email = $request->email;
-    //     $shipping->mobile = $request->mobile;
-    //     $shipping->address = $request->address;
-    //     $shipping->save();
-
-    //     Session::put('shippingId', $shipping->id);
-
-    //     return redirect('/checkout/payment');
-    // }
-
-    // public function paymentForm() {
-    //     return view('frontEnd.checkout.payment');
-    // }
-
-    // public function newOrder(Request $request) {
-    //     $paymentType = $request->payment_type;
-
-    //     if ($paymentType == 'Cash') {
-    //         $order = new Order();
-    //         $order->customer_id = Session::get('customerId');
-    //         $order->shipping_id = Session::get('shippingId');
-    //         $order->order_total = Session::get('orderTotal');
-    //         $order->order_status = 'pending';
-    //         $order->save();
-
-    //         $payment = new Payment();
-    //         $payment->order_id = $order->id;
-    //         $payment->payment_type = $paymentType;
-    //         $payment->payment_status = 'pending';
-    //         $payment->save();
-
-    //         $cartProducts = Cart::content();
-    //         foreach ($cartProducts as $cartProduct) {
-    //             $orderDetail = new OrderDetail();
-    //             $orderDetail->order_id = $order->id;
-    //             $orderDetail->product_id = $cartProduct->id;
-
-    //             if (!empty($cartProduct->options->size)) {
-    //                $orderDetail->size = $cartProduct->options->size;
-    //             }
-
-    //             if (!empty($cartProduct->options->color)) {
-    //                $orderDetail->color = $cartProduct->options->color;
-    //             }
-
-    //             $orderDetail->quantity = $cartProduct->qty;
-    //             $orderDetail->save();
-    //         }
-
-
-
-    //         Cart::destroy();
-
-    //         return redirect('/complete/order');
-
-    //     } else if ($paymentType == 'Bkash') {
-
-    //     } else if ($paymentType == 'Rocket') {
-
-    //     } else if ($paymentType == 'Ukash') {
-
-    //     } else if ($paymentType == 'Paypal') {
-
-    //     }
-    // }
-
-    // public function completeOrder() {
-    //     return view('frontEnd.order.order-complete');
-    // }
 }
