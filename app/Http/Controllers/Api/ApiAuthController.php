@@ -159,6 +159,7 @@ class ApiAuthController extends Controller
             $user->name = $request->get('name');
             $user->email = $request->get('email');
             $user->mobile = $request->get('mobile');
+            $user->has_different_address = true;
             $user->user_profile_photo = 'uploads/customer-profile-image/'.$imageName;
             $user->address = $request->get('address');
             $user->save();

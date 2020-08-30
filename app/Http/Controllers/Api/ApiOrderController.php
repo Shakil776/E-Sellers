@@ -32,7 +32,7 @@ class ApiOrderController extends Controller
 
         $order = Order::find($orderId);
         $orderDetails = OrderDetail::where('order_id',$orderId)->with('products')->get();
-        $shipping_address = Shipping::where('order_id',$orderId)->first();
+        $shipping_address = Shipping::find($order->shipping_id);
         $payment = Payment::where('order_id',$orderId)->first();
         
         $order_details = array('order'=>$order,'details'=>$orderDetails,'shipping'=>$shipping_address,'payment'=>$payment);

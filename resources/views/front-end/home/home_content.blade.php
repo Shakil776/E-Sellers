@@ -31,7 +31,7 @@
         <div class="container">
             <div class="row partition2">
                 <div class="col-md-6">
-                    <a href="">
+                    <a href="{{ asset('/product-category/mens-collection') }}">
                         <div class="collection-banner p-right text-center">
                             <div class="img-part">
                                 <img src="{{ asset('frontEnd')}}/images/sub-banner1.jpg" class="img-fluid blur-up lazyload bg-img"
@@ -47,7 +47,7 @@
                     </a>
                 </div>
                 <div class="col-md-6">
-                    <a href="">
+                <a href="{{ asset('/product-category/womens-collection') }}">
                         <div class="collection-banner p-right text-center">
                             <div class="img-part">
                                 <img src="{{ asset('frontEnd')}}/images/sub-banner2.jpg" class="img-fluid blur-up lazyload bg-img"
