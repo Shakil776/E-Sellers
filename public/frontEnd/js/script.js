@@ -1525,5 +1525,4 @@ function selectPaymentMethod() {
         alert('Please Select a Payment Method');
         return false;
     }
-
 }

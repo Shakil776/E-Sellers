@@ -15,7 +15,7 @@
     @endif
 
     @if(Session::has('error'))
-        <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+        <div class="alert alert-danger alert-dismissible fade show text-center" role="alert" id="errorMsgSowLogin">
           <strong>Ooops! </strong>  {{ Session::get('error') }}
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -72,11 +72,11 @@
                             @csrf
                             <div class="form-group">
                                 <label for="email">Email</label>
-                                <input type="text" class="form-control" name="email" id="email" placeholder="Email" autocomplete="off">
+                                <input type="text" class="form-control" name="email" id="loginEmail" placeholder="Email" autocomplete="off">
                             </div>
                             <div class="form-group">
                                 <label for="review">Password</label>
-                                <input type="password" name="password" autocomplete="off" class="form-control" id="password"
+                                <input type="password" name="password" autocomplete="off" class="form-control" id="loginPassword"
                                     placeholder="Enter your password">
                             </div>
                             <button type="submit" class="btn btn-solid">Login</button>
