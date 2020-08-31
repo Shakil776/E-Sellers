@@ -22,19 +22,19 @@ class NewShopController extends Controller
         $newProducts = Product::where('publication_status', 1)
                                 ->where('status_id', 1)
                                 ->inRandomOrder()
-    							->take(8)
+    							->take(16)
                                 ->get();
                                 
         $featureProducts = Product::where('publication_status', 1)
                                 ->where('status_id', 2)
                                 ->inRandomOrder()
-    							->take(8)
+    							->take(16)
                                 ->get();
                                 
         $bestSellersProducts = Product::where('publication_status', 1)
                                 ->where('status_id', 7)
                                 ->inRandomOrder()
-    							->take(8)
+    							->take(16)
     							->get();
 
         $showSliders = SliderImage::where('publication_status', 1)
