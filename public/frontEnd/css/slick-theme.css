@@ -3,14 +3,6 @@
 .slick-loading .slick-list {
   background: #fff url("../images/ajax-loader.gif") center center no-repeat; }
 
-/* Icons */
-@font-face {
-  font-family: "slick";
-  src: url("http://themes.pixelstrap.com/multikart/assets/fonts/slick.eot");
-  src: url("http://themes.pixelstrap.com/multikart/assets/fonts/slick.eot?#iefix") format("embedded-opentype"), url("http://themes.pixelstrap.com/multikart/assets/fonts/slick.woff") format("woff"), url("http://themes.pixelstrap.com/multikart/assets/fonts/slick.ttf") format("truetype"), url("http://themes.pixelstrap.com/multikart/assets/fonts/slick.svg#slick") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-
 /* Arrows */
 .slick-prev,
 .slick-next {

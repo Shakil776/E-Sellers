@@ -1,9 +1,9 @@
 /*-----------------------------------------------------------------------------------
- Template Name:Multikart
- Template URI: themes.pixelstrap.com/multikart
+ Template Name:Esellers
+ Template URI: Esellers
  Description: This is E-commerce website
- Author: Pixelstrap
- Author URI: https://themeforest.net/user/pixelstrap
+ Author: Esellers
+ Author URI: Esellers
  ----------------------------------------------------------------------------------- */
 // 01.Pre loader
 // 02.Tap on Top
