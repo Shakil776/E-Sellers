@@ -5,9 +5,18 @@
 @section('main-content')
 
     {{-- message --}}
-     @if(session()->has("message"))
+     @if(Session::has('success'))
         <div class="alert alert-success alert-dismissible fade show text-center" role="alert">
-          <strong>Success! </strong>  {{ session('message') }}
+          <strong>Success! </strong>  {{ Session::get('success') }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    @endif
+
+    @if(Session::has('error'))
+        <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+          <strong>Ooops! </strong>  {{ Session::get('error') }}
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -15,13 +24,12 @@
     @endif
 
     {{-- laravel validation error show message --}}
-    @if(count($errors) > 0)
+    @if ($errors->any())
         <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
             <ul>
-                @foreach($errors->all() as $error)
+                @foreach ($errors->all() as $error)
                     <li>{{ $error }}</li>
                 @endforeach
-                <p>{{ session('message') }}</p>
             </ul>
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -65,11 +73,12 @@
                             <div class="form-group">
                                 <label for="email">Email</label>
                                 <input type="text" class="form-control" name="email" id="loginEmail" placeholder="Email" autocomplete="off">
+                                <span class="text-danger">{{ $errors->has('email') ? $errors->first('email') : ' ' }}</span>
                             </div>
                             <div class="form-group">
                                 <label for="review">Password</label>
-                                <input type="password" name="password" autocomplete="off" class="form-control" id="loginPassword"
-                                    placeholder="Enter your password">
+                                <input type="password" name="password" autocomplete="off" class="form-control" id="loginPassword" placeholder="Enter your password">
+                                <span class="text-danger">{{ $errors->has('password') ? $errors->first('password') : ' ' }}</span>
                             </div>
                             <button type="submit" class="btn btn-solid">Login</button>
                             <a href="{{ url('forgot-password') }}" class="text-right text-success" style="margin-left: 30px; color: #000;">Forgot Password?</a>

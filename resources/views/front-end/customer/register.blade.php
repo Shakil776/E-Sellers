@@ -78,10 +78,12 @@
                                 <div class="col-md-6">
                                     <label for="name">Name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="name" id="name" placeholder="Name" required="" autocomplete="off">
+                                    <span class="text-danger">{{ $errors->has('name') ? $errors->first('name') : ' ' }}</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="email">Email <span class="text-danger">*</span></label>
                                     <input type="email" class="form-control" name="email" id="email" placeholder="Email" required="" autocomplete="off">
+                                    <span class="text-danger">{{ $errors->has('email') ? $errors->first('email') : ' ' }}</span>
                                 </div>
                             </div>
 
@@ -89,10 +91,12 @@
                                 <div class="col-md-6">
                                     <label for="mobile">Mobile <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Mobile" required="" autocomplete="off">
+                                    <span class="text-danger">{{ $errors->has('mobile') ? $errors->first('mobile') : ' ' }}</span>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="password">Password <span class="text-danger">*</span></label>
                                     <input type="password" class="form-control" name="password" id="password" placeholder="Enter your password" required="" autocomplete="off">
+                                    <span class="text-danger">{{ $errors->has('password') ? $errors->first('password') : ' ' }}</span>
                                 </div>
                                
                             </div>

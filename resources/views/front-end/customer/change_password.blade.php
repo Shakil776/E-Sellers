@@ -42,16 +42,6 @@
 				            </div>
 			            @endif
 
-						@if(count($errors) > 0)
-			                <div class="alert alert-danger">
-			                    @foreach($errors->all() as $error)
-			                        <p>{{ $error }}</p>
-			                    @endforeach
-			                    <p>{{ session('message') }}</p>
-			                </div>
-                        @endif
-                        
-
                     <h3 class="text-center">Change Password</h3>
                     <div class="theme-card">
                         <form class="theme-form" action="{{ url('pas_update') }}" method="POST">
@@ -79,5 +69,4 @@
 
 
 @endsection
-
 

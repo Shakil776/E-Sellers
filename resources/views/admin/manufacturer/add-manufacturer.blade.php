@@ -29,6 +29,16 @@
 						    </div>
 						 </div>
 
+						 <div class="form-group">
+						    <label class="control-label col-sm-2" for="url">Manufacturer URL</label>
+						    <div class="col-sm-10">
+						    	<input type="text" class="form-control" name="url" id="url" placeholder="Enter Manufacturer URL">
+						    	<span class="text-danger">{{ $errors->has('url') ? $errors->first('url') : ' ' }}</span>
+						    </div>
+						 </div>
+
+						 
+
 
 						 <div class="form-group">
 						    <label class="control-label col-sm-2" for="manufacturer_description">Manufacturer Description</label>

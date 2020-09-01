@@ -66,32 +66,39 @@ class UserController extends Controller
     // customer login 
     public function checkCustomerLogin(Request $request) {
 
-        $validator = Validator::make(array(
-            "email" => $request->email,
-            "password" => $request->password
-        ),array(
-            "email" => "required",
-            "password" => "required"
-        ));
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
+        $this->validate($request, [
+            'email' => 'required | email',
+            'password' => 'required | string | min:8'
+        ]);
 
         if(empty($request->email) || empty($request->password)){
-            $error_message = "Field must not be empty.";
-            return redirect()->back()->withErrors($error_message);
+            return redirect()->back()->with('success', 'Field must not be empty.');
         }
 
-        $user = User::where('email', $request->email)->first();
+        // $user = User::where('email', $request->email)->first();
 
-        if (password_verify($request->password, $user->password)) {
-            Session::put('customerId', $user->id);
-            Session::put('customerName', $user->name);
+        // if (password_verify($request->password, $user->password)) {
+        //     Session::put('customerId', $user->id);
+        //     Session::put('customerName', $user->name);
+        //     return redirect('/cart-show');
+        // } else {
+        //     Session::put('error', 'Invalid Credentials!');
+        //     return redirect()->back();
+        // }
+
+        $userdata = array(
+            'email'     => $request->email,
+            'password'  => $request->password
+        );
+
+        if (Auth::attempt($userdata)) {
+            if(Auth::check()){
+                $customerId = Auth::user()->id;
+                Session::put('customerId', $customerId);
+            }
             return redirect('/cart-show');
         } else {
-            $error_message = "Invalid Credentials!";
-            return redirect()->back()->withErrors($error_message);
+            return redirect()->back()->with('error', 'Invalid Credentials!');
         }
     }
 
