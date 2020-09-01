@@ -14,12 +14,14 @@ class ManufacturerController extends Controller
     public function saveManufacturer(Request $request) {
         $this->validate($request, [
             'manufacturer_name' => 'required|regex:/^[\pL\s\-]+$/u',
+            'url' => 'required',
             'manufacturer_description' => 'required',
             'publication_status' => 'required'
         ]);
 
     	$manufacturer = new Manufacturer;
     	$manufacturer->manufacturer_name        = $request->manufacturer_name;
+    	$manufacturer->url                      = $request->url;
     	$manufacturer->manufacturer_description = $request->manufacturer_description;
     	$manufacturer->publication_status       = $request->publication_status;
     	$manufacturer->save();
@@ -53,12 +55,14 @@ class ManufacturerController extends Controller
     public function updateManufacturer(Request $request) {
         $this->validate($request, [
             'manufacturer_name' => 'required|regex:/^[\pL\s\-]+$/u',
+            'url' => 'required',
             'manufacturer_description' => 'required',
             'publication_status' => 'required'
         ]);
 
     	$manufacturer = Manufacturer::find($request->manufacturer_id);
     	$manufacturer->manufacturer_name        = $request->manufacturer_name;
+    	$manufacturer->url        = $request->url;
     	$manufacturer->manufacturer_description = $request->manufacturer_description;
     	$manufacturer->publication_status       = $request->publication_status;
     	$manufacturer->save();

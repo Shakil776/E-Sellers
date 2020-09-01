@@ -20,7 +20,7 @@
                         <form action="javascript:void(0);" class="form-inline subscribe-form auth-form needs-validation" type="post">
                         @csrf
                             <div class="form-group mx-sm-3">
-                                <input onfocus="enableSubsButton();" onfocusout="checkSubscriberEmail();" type="email" class="form-control" name="subscriber_email" id="subscriber_email" placeholder="Enter your Email" required="required">
+                                <input onfocus="enableSubsButton();" onfocusout="checkSubscriberEmail();" type="email" class="form-control" name="subscriber_email" id="subscriber_email" placeholder="Enter your Email" required="required" autocomplete="off">
                             </div>
                             <button  style="display:block" onclick="checkSubscriberEmail(); addSubscriberEmail();" type="submit" class="btn btn-solid" id="subsBtnSubmit">subscribe</button>
                             

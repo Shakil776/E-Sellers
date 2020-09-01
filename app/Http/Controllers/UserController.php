@@ -67,19 +67,35 @@ class UserController extends Controller
     public function checkCustomerLogin(Request $request) {
 
         $this->validate($request, [
-            'email' => 'required| email',
-            'password' => 'required | min:8'
+            'email' => 'required | email',
+            'password' => 'required | string | min:8'
         ]);
 
         if(empty($request->email) || empty($request->password)){
-            return redirect()->back()->with('error', 'Field must not be empty.');
+            return redirect()->back()->with('success', 'Field must not be empty.');
         }
 
-        $user = User::where('email', $request->email)->first();
+        // $user = User::where('email', $request->email)->first();
 
-        if (password_verify($request->password, $user->password)) {
-            Session::put('customerId', $user->id);
-            Session::put('customerName', $user->name);
+        // if (password_verify($request->password, $user->password)) {
+        //     Session::put('customerId', $user->id);
+        //     Session::put('customerName', $user->name);
+        //     return redirect('/cart-show');
+        // } else {
+        //     Session::put('error', 'Invalid Credentials!');
+        //     return redirect()->back();
+        // }
+
+        $userdata = array(
+            'email'     => $request->email,
+            'password'  => $request->password
+        );
+
+        if (Auth::attempt($userdata)) {
+            if(Auth::check()){
+                $customerId = Auth::user()->id;
+                Session::put('customerId', $customerId);
+            }
             return redirect('/cart-show');
         } else {
             return redirect()->back()->with('error', 'Invalid Credentials!');

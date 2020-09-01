@@ -23,8 +23,9 @@
                         <thead>
                             <tr>
                                 <th class="text-center" width="10%">Sl No.</th>
-                                <th class="text-center" width="20%">Manufacturer Name</th>
-                                <th class="text-center" width="35%">Manufacturer Description</th>
+                                <th class="text-center" width="15%">Manufacturer Name</th>
+                                <th class="text-center" width="10%">URL</th>
+                                <th class="text-center" width="30%">Description</th>
                                 <th class="text-center" width="20%">Publication Status</th>
                                 <th class="text-center" width="15%">Action</th>
                             </tr>
@@ -35,6 +36,7 @@
                             <tr class="odd gradeX">
                                 <td>{{ $i++ }}</td>
                                 <td>{{ $manufacturer->manufacturer_name }}</td>
+                                <td>{{ $manufacturer->url }}</td>
                                 <td>{{ $manufacturer->manufacturer_description }}</td>
                                 <td>{{ $manufacturer->publication_status == 1 ? 'Published' : 'Unpublished' }}</td>
                                 <td class="text-center">
