@@ -16484,6 +16484,9 @@ body.dark {
     background-color: #2b2b2b; } }
 
 @media (max-width: 767px) {
+  h1 span{
+    font-size: 65px;
+  }
   .container-fluid.custom-container {
     padding-left: 30px;
     padding-right: 30px; }
@@ -17545,7 +17548,7 @@ body.dark {
   .product-wrap .product-info .color-variant {
     padding-top: 10px; }
   footer {
-    margin-bottom: 60px; }
+    margin-bottom: 80px; }
     footer .btn-solid {
       padding: 13px 29px; }
     footer p {
