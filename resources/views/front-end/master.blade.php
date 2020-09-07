@@ -25,14 +25,11 @@
     <!-- Animate icon -->
     <link rel="stylesheet" type="text/css" href="{{ url('frontEnd') }}/css/animate.css">
 
-    <!-- themify-icons -->
-    <link rel="stylesheet" type="text/css" href="{{ url('frontEnd') }}/css/themify-icons.css">
-
     <!-- Bootstrap css -->
     <link rel="stylesheet" type="text/css" href="{{ url('frontEnd') }}/css/bootstrap.css">
 
     <!-- Theme css -->
-    <link rel="stylesheet" type="text/css" href="{{ url('frontEnd') }}/css/color1.css?v=1.0" media="screen" id="color">
+    <link rel="stylesheet" type="text/css" href="{{ url('frontEnd') }}/css/color1.css?v=1.1" media="screen" id="color">
 
 
 </head>
@@ -67,10 +64,6 @@
 
     <!-- fly cart ui jquery-->
     <script src="{{ url('frontEnd') }}/js/jquery-ui.min.js"></script>
-
-    <!-- exitintent jquery-->
-    <script src="{{ url('frontEnd') }}/js/jquery.exitintent.js"></script>
-    <script src="{{ url('frontEnd') }}/js/exit.js"></script>
 
     <!-- popper js-->
     <script src="{{ url('frontEnd') }}/js/popper.min.js"></script>

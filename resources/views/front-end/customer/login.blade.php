@@ -65,7 +65,7 @@
     <section class="login-page section-b-space">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-6 offset-lg-3">
                     <h3>Login</h3>
                     <div class="theme-card">
                         <form class="theme-form" action="{{ url('login-check') }}" method="post">
@@ -82,10 +82,13 @@
                             </div>
                             <button type="submit" class="btn btn-solid">Login</button>
                             <a href="{{ url('forgot-password') }}" class="text-right text-success" style="margin-left: 30px; color: #000;">Forgot Password?</a>
+                            <h5 class="text-center" style="text-transform:capitalize; margin-top:15px">
+                                 Haven't any account? <a class="text-right text-success" href="{{ url('/register') }}">Sign Up</a>
+                            </h5>
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-6 right-login">
+                <!-- <div class="col-lg-6 right-login">
                     <h3>New Customer</h3>
                     <div class="theme-card authentication-right">
                         <h6 class="title-font">Create A Account</h6>
@@ -93,7 +96,7 @@
                             able to order from our shop. To start shopping click register.</p><a href="{{ url('/register') }}"
                             class="btn btn-solid">Create an Account</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </section>

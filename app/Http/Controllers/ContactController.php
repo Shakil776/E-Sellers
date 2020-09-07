@@ -27,6 +27,25 @@ class ContactController extends Controller
         return view('front-end.content.contact');
     }
 
+    //custom dress
+    public function makeDress(){
+        return view('front-end.custom-category.makedress');
+    }
+
+    //dress details
+    public function dressDetails(){
+        return view('front-end.custom-category.dress-details');
+    }
+
+    //select service
+    public function selectService(){
+        return view('front-end.custom-category.select-service');
+    }
+    //measurement
+    public function measurementOption(){
+        return view('front-end.custom-category.measurement');
+    }
+
     // add contact details
     public function contact(Request $request){
         if($request->ajax()){

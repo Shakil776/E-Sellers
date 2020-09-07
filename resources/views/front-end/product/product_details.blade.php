@@ -57,6 +57,9 @@
                             </div>
                         </div>
                     </div>
+                    
+
+
                     <div class="col-lg-6 rtl-text">
                         <div class="product-right">
                             <h2 class="mb-0">{{ $productDetails->product_name }}</h2>

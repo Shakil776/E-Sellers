@@ -35,6 +35,15 @@ Route:: get('/affiliates', 'ContactController@affiliates');
 Route::get('/contact-us', 'ContactController@showContact');
 // contact us
 Route::post('/contact', 'ContactController@contact');
+//Make Dress
+Route::get('/makedress','ContactController@makeDress');
+//Dress details
+Route::get('/dress-details','ContactController@dressDetails');
+//Select Service
+Route::get('/select-service','ContactController@selectService');
+//measurement
+Route::get('/measurement','ContactController@measurementOption');
+
 
 // prevent route if trying to access without login
 Route::group(['middleware' => 'front'], function() {
