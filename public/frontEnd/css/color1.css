@@ -11899,6 +11899,9 @@ body.rtl {
     right: 0; }
     .rtl .contact-page .contact-right ul li .contact-icon h6 {
       text-align: center; }
+    .contact-icon img{
+      width:20px;
+    }
 
 .rtl .faq-section .accordion.theme-accordion .card .card-header button {
   float: right;

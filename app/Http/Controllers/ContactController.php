@@ -46,6 +46,11 @@ class ContactController extends Controller
         return view('front-end.custom-category.measurement');
     }
 
+    //Home Make address
+    public function HomeMakeAddress(){
+        return view('front-end.custom-category.home-make-address');
+    }
+
     // add contact details
     public function contact(Request $request){
         if($request->ajax()){

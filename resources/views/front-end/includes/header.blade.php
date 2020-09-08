@@ -78,6 +78,16 @@
                                                 <a href="#">{{ $cat->category_name }}</a>
                                             </li>
                                             @endforeach
+                                            <li><a href="#">Make Your Dress</a>
+                                                <ul>
+                                                    <li><a href="#">Salwar Kamiz</a></li>
+                                                    <li><a href="#">Guage Fabric</a></li>
+                                                    <li><a href="#">Tailors Shop</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">About Us</a></li>
+                                            <li><a href="#">Contact Us</a></li>
+                                            <li><a href="#">Create Shop</a></li>
 
                                         </ul>
                                     </nav>
@@ -303,7 +313,6 @@
                                                                     @foreach($subcat->subCategories as $subsubcat)
                                                                     <li><a href="{{ asset('/product-category/'.$subsubcat->url) }}">{{ $subsubcat->category_name }}</a></li>
                                                                     @endforeach
-
                                                                 </ul>
                                                             </div>
                                                         </div>
@@ -313,6 +322,16 @@
                                             </ul>
                                         </li>
                                         @endforeach
+                                        <li><a href="#">Make Your Dress</a>
+                                            <ul>
+                                                <li><a href="{{ url('makedress')}}">Salwar Kamiz</a></li>
+                                                <li><a href="#">Guage Fabric</a></li>
+                                                <li><a href="#">Tailors Shop</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="{{ url('contact-us') }}">Contact Us</a></li>
+                                        <li><a href="#">Create Shop</a></li>
                                     </ul>
                                 </nav>
                             </div>
